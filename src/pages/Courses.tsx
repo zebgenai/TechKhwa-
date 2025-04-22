@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Shield, Cpu, Code } from "lucide-react";
+import { Shield, Cpu, Code, BookPlus, BookText } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
@@ -28,6 +28,22 @@ const courses = [
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
     duration: "20 weeks",
     level: "Beginner to Advanced"
+  },
+  {
+    title: "AWS Cloud",
+    description: "Gain practical skills in Amazon Web Services, cloud infrastructure, and deployment best practices for scalable applications.",
+    icon: BookPlus,
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f", // fits cloud/infrastructure
+    duration: "10 weeks",
+    level: "Intermediate"
+  },
+  {
+    title: "Networking",
+    description: "Understand network fundamentals, protocols, routing, and hands-on configuration for both wired and wireless environments.",
+    icon: BookText,
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
+    duration: "8 weeks",
+    level: "Beginner to Intermediate"
   }
 ];
 
@@ -91,3 +107,4 @@ const Courses = () => {
 };
 
 export default Courses;
+
