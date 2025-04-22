@@ -4,6 +4,7 @@ import EnhancedHero from "@/components/EnhancedHero";
 import Features from "@/components/Features";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
+import CourseRegistrationForm from "@/components/CourseRegistrationForm";
 import { motion } from "framer-motion";
 import { Book, Globe, Users } from "lucide-react";
 
@@ -73,6 +74,7 @@ const Index = () => {
       <OurMissionSection />
       <WhyChooseUs />
       <Testimonials />
+      <CourseRegistrationForm />
     </div>
   );
 };
