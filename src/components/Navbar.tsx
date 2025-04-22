@@ -16,8 +16,13 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="text-xl font-bold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+          <Link to="/" className="flex items-center space-x-2">
+            <img 
+              src="/lovable-uploads/3b227453-b8a0-44a9-b1f9-b79b76a5bd7f.png" 
+              alt="Techkhwa Logo" 
+              className="h-10 w-10"
+            />
+            <span className="text-xl font-bold text-gray-800 dark:text-white">
               Techkhwa
             </span>
           </Link>
