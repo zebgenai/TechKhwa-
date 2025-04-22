@@ -1,12 +1,12 @@
 
-import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import EnhancedHero from "@/components/EnhancedHero";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <Hero />
+      <EnhancedHero />
     </div>
   );
 };
