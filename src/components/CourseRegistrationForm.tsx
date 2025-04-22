@@ -10,7 +10,9 @@ import { User, UserRound, Key, Phone, Mail, BookOpen, FilePen } from "lucide-rea
 const courses = [
   "Cybersecurity Fundamentals",
   "Artificial Intelligence & Machine Learning",
-  "Full Stack Development"
+  "Full Stack Development",
+  "AWS Cloud",
+  "Networking"
 ];
 
 const initialState = {
@@ -131,3 +133,4 @@ const CourseRegistrationForm = () => {
 };
 
 export default CourseRegistrationForm;
+
