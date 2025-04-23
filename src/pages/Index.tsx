@@ -7,7 +7,7 @@ import Testimonials from "@/components/Testimonials";
 import CourseRegistrationForm from "@/components/CourseRegistrationForm";
 import { motion } from "framer-motion";
 import { Book, Globe, Users } from "lucide-react";
-import CrawlForm from "@/components/CrawlForm";
+// CrawlForm import removed
 
 const OurMissionSection = () => {
   const missionItems = [
@@ -75,8 +75,7 @@ const Index = () => {
       <OurMissionSection />
       <WhyChooseUs />
       <Testimonials />
-      {/* Add the Website Scraper */}
-      <CrawlForm />
+      {/* CrawlForm has been removed */}
       <CourseRegistrationForm />
       <footer className="mt-16 flex flex-col items-center border-t pt-8 gap-2 text-center">
         <div className="text-gray-700 dark:text-gray-200 font-medium">
