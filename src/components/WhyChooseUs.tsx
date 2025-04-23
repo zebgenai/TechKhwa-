@@ -2,14 +2,34 @@
 import { motion } from "framer-motion";
 
 const WhyChooseUs = () => {
+  // Container and item variants for more advanced entrance animation
+  const container = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.18 } }
+  };
+  const imageVariant = {
+    hidden: { opacity: 0, scale: 0.93, x: -50 },
+    show: { opacity: 1, scale: 1, x: 0, transition: { duration: 0.75, type: "spring", bounce: 0.28 } },
+    hover: { scale: 1.035, boxShadow: "0 4px 26px rgba(80,0,230,0.16)" }
+  };
+  const contentVariant = {
+    hidden: { opacity: 0, x: 60 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.72, type: "spring", bounce: 0.22 } }
+  };
+
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <motion.div
+          className="grid md:grid-cols-2 gap-12 items-center"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            variants={imageVariant}
+            whileHover="hover"
           >
             <img
               src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
@@ -19,9 +39,7 @@ const WhyChooseUs = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            variants={contentVariant}
             className="space-y-6"
           >
             <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
@@ -43,6 +61,7 @@ const WhyChooseUs = () => {
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.03, color: "#725CFE" }}
                   className="flex items-center space-x-3"
                 >
                   <span className="h-2 w-2 bg-blue-600 rounded-full" />
@@ -51,7 +70,7 @@ const WhyChooseUs = () => {
               ))}
             </ul>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

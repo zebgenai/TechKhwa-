@@ -21,6 +21,25 @@ const Features = () => {
     }
   ];
 
+  // Framer Motion containers and item animations
+  const container = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.23
+      }
+    }
+  };
+  const item = {
+    hidden: { opacity: 0, y: 64, scale: 0.94 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.7, type: "spring", bounce: 0.32 }
+    }
+  };
+
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
@@ -38,13 +57,19 @@ const Features = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div
+          className="grid md:grid-cols-3 gap-8"
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+        >
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              variants={item}
+              whileHover={{ scale: 1.04, boxShadow: "0 6px 26px rgba(80,0,230,0.14)" }}
+              className="transition-shadow"
             >
               <Card className="overflow-hidden hover:shadow-lg transition-shadow">
                 <img
@@ -59,7 +84,7 @@ const Features = () => {
               </Card>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

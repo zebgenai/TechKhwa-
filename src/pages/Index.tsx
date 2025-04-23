@@ -28,6 +28,16 @@ const OurMissionSection = () => {
     }
   ];
 
+  // Variants for entry animation
+  const container = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.25 } }
+  };
+  const item = {
+    hidden: { opacity: 0, y: 60, scale: 0.91 },
+    show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.75, type: "spring", bounce: 0.33 } }
+  };
+
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
@@ -40,13 +50,18 @@ const OurMissionSection = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div
+          className="grid md:grid-cols-3 gap-8"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {missionItems.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              variants={item}
+              whileHover={{ scale: 1.05, boxShadow: "0 6px 18px rgba(80,0,230,0.26)" }}
               className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center"
             >
               <div className="flex justify-center mb-4">
@@ -60,7 +75,7 @@ const OurMissionSection = () => {
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
