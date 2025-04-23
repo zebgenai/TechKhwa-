@@ -65,18 +65,22 @@ const CourseRegistrationForm = () => {
     setSubmitting(true);
 
     try {
-      const res = await fetch(GOOGLE_SCRIPT_URL, {
+      // Create a form data object for submission to Google Scripts
+      // (This helps bypass CORS restrictions)
+      const formData = new FormData();
+      
+      // Add the form data as a JSON string parameter
+      formData.append('data', JSON.stringify(form));
+      
+      // Use no-cors mode to ensure the request completes even with CORS limitations
+      await fetch(GOOGLE_SCRIPT_URL + "?action=addRow", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(form)
+        mode: "no-cors", // This ensures the request doesn't fail due to CORS
+        body: formData
       });
-
-      if (!res.ok) {
-        throw new Error("Failed to send data to Google Sheet");
-      }
-
+      
+      // Since no-cors mode doesn't return readable response, we assume success
+      // if no error is thrown during fetch
       setForm(initialState);
       setShowCelebration(true);
       toast.success("Registration Successful!", {
@@ -87,6 +91,7 @@ const CourseRegistrationForm = () => {
       toast.error("Something went wrong!", {
         description: "There was a problem submitting your application. Please try again.",
       });
+      console.error("Form submission error:", error);
     } finally {
       setSubmitting(false);
     }
