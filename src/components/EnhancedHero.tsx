@@ -24,12 +24,20 @@ const EnhancedHero = () => {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <motion.section 
+      className="relative min-h-screen overflow-hidden"
+      initial={{ opacity: 0, y: 64 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.2, type: "spring", bounce: 0.27 }}
+    >
       {/* Advanced Parallax Background */}
       <motion.div
         ref={bgRef}
         style={{ y }}
         className="absolute inset-0 z-0 will-change-transform"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
       >
         <img
           src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
@@ -48,14 +56,14 @@ const EnhancedHero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.1, type: "spring" }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg animate-fade-in">
               Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Techkhwa</span>
             </h1>
             <motion.p
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.9, type: "spring" }}
-              className="text-lg md:text-xl text-gray-200 leading-relaxed mb-8"
+              className="text-lg md:text-xl text-gray-200 leading-relaxed mb-8 animate-fade-in"
             >
               Our vision is to create a vibrant, innovative tech ecosystem that empowers students, professionals, and entrepreneurs to thrive in a rapidly evolving world.
             </motion.p>
@@ -67,7 +75,7 @@ const EnhancedHero = () => {
             >
               <motion.a
                 variants={buttonVariants}
-                className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors hover:scale-105"
                 whileHover="hover"
                 whileTap="tap"
                 href="/courses"
@@ -76,7 +84,7 @@ const EnhancedHero = () => {
               </motion.a>
               <motion.a
                 variants={buttonVariants}
-                className="inline-block px-8 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                className="inline-block px-8 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors hover:scale-105"
                 whileHover="hover"
                 whileTap="tap"
                 href="/about"
@@ -100,20 +108,20 @@ const EnhancedHero = () => {
                 whileHover="hover"
                 src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
                 alt="Programming"
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
+                className="w-full h-48 object-cover rounded-lg shadow-lg animate-scale-in"
               />
               <motion.img
                 variants={imageVariants}
                 whileHover="hover"
                 src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
                 alt="Technology"
-                className="w-full h-48 object-cover rounded-lg shadow-lg mt-8"
+                className="w-full h-48 object-cover rounded-lg shadow-lg mt-8 animate-scale-in"
               />
             </div>
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

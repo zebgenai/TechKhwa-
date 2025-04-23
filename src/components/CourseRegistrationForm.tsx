@@ -98,46 +98,59 @@ const CourseRegistrationForm = () => {
   };
 
   return (
-    <section id="registration" className="py-20 bg-gradient-to-br from-blue-50/40 via-purple-50/20 to-blue-100/10 dark:from-gray-950/90 dark:to-gray-900">
+    <motion.section
+      id="registration"
+      className="py-20 bg-gradient-to-br from-blue-50/40 via-purple-50/20 to-blue-100/10 dark:from-gray-950/90 dark:to-gray-900"
+      initial={{ opacity: 0, scale: 0.96, y: 36 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.85, type: "spring", bounce: 0.22 }}
+      viewport={{ once: true, amount: 0.25 }}
+    >
       {showCelebration && (
         <SuccessCelebration dismiss={() => setShowCelebration(false)} />
       )}
       <div className="container max-w-xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-2 text-gradient-primary">Apply for a Course</h2>
-        <p className="text-center text-gray-600 dark:text-gray-400 mb-8">Fill out the form to register for your desired course at Techkhwa.</p>
-        <form className="bg-white dark:bg-gray-800 glass-morphism rounded-xl shadow-lg p-6 md:p-10 space-y-5" onSubmit={handleSubmit}>
+        <h2 className="text-3xl font-bold text-center mb-2 text-gradient-primary animate-fade-in">Apply for a Course</h2>
+        <p className="text-center text-gray-600 dark:text-gray-400 mb-8 animate-fade-in">Fill out the form to register for your desired course at Techkhwa.</p>
+        <motion.form
+          className="bg-white dark:bg-gray-800 glass-morphism rounded-xl shadow-lg p-6 md:p-10 space-y-5 animate-fade-in"
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.69, delay: 0.32, type: "spring" }}
+        >
           {/* Name */}
-          <div>
+          <motion.div initial={{ opacity: 0, x: -18 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.12 }}>
             <Label htmlFor="name" className="flex items-center gap-1"><User className="w-4 h-4" /> Name</Label>
             <Input id="name" name="name" placeholder="Enter your name" value={form.name} onChange={handleChange} />
             {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name}</p>}
-          </div>
+          </motion.div>
           {/* Father name */}
-          <div>
+          <motion.div initial={{ opacity: 0, x: 22 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.17 }}>
             <Label htmlFor="fatherName" className="flex items-center gap-1"><UserRound className="w-4 h-4" /> Father Name</Label>
             <Input id="fatherName" name="fatherName" placeholder="Enter father's name" value={form.fatherName} onChange={handleChange} />
             {errors.fatherName && <p className="text-sm text-red-500 mt-1">{errors.fatherName}</p>}
-          </div>
+          </motion.div>
           {/* CINC Number */}
-          <div>
+          <motion.div initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.22 }}>
             <Label htmlFor="cinc" className="flex items-center gap-1"><Key className="w-4 h-4" /> CINC Number</Label>
             <Input id="cinc" name="cinc" placeholder="Enter CINC number" value={form.cinc} onChange={handleChange} />
             {errors.cinc && <p className="text-sm text-red-500 mt-1">{errors.cinc}</p>}
-          </div>
+          </motion.div>
           {/* Contact */}
-          <div>
+          <motion.div initial={{ opacity: 0, x: 19 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.27 }}>
             <Label htmlFor="contact" className="flex items-center gap-1"><Phone className="w-4 h-4" /> Contact</Label>
             <Input id="contact" name="contact" placeholder="Enter phone number" value={form.contact} onChange={handleChange} />
             {errors.contact && <p className="text-sm text-red-500 mt-1">{errors.contact}</p>}
-          </div>
+          </motion.div>
           {/* Gmail */}
-          <div>
+          <motion.div initial={{ opacity: 0, x: -19 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.33 }}>
             <Label htmlFor="email" className="flex items-center gap-1"><Mail className="w-4 h-4" /> Gmail</Label>
             <Input id="email" name="email" type="email" placeholder="Enter your gmail" value={form.email} onChange={handleChange} />
             {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email}</p>}
-          </div>
+          </motion.div>
           {/* Course selection */}
-          <div>
+          <motion.div initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.39 }}>
             <Label htmlFor="course" className="flex items-center gap-1"><BookOpen className="w-4 h-4" /> Select Course</Label>
             <Select value={form.course} onValueChange={handleCourse}>
               <SelectTrigger id="course">
@@ -150,17 +163,17 @@ const CourseRegistrationForm = () => {
               </SelectContent>
             </Select>
             {errors.course && <p className="text-sm text-red-500 mt-1">{errors.course}</p>}
-          </div>
+          </motion.div>
           {/* Submit */}
-          <div className="text-center pt-2">
-            <Button type="submit" disabled={submitting} className="w-full flex items-center justify-center gap-2">
+          <motion.div className="text-center pt-2" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5 }}>
+            <Button type="submit" disabled={submitting} className="w-full flex items-center justify-center gap-2 transition-transform duration-200 hover:scale-105">
               <FilePen className="w-4 h-4" />
               {submitting ? "Submitting..." : "Submit Application"}
             </Button>
-          </div>
-        </form>
+          </motion.div>
+        </motion.form>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

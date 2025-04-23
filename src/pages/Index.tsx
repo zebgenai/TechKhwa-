@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import EnhancedHero from "@/components/EnhancedHero";
 import Features from "@/components/Features";
@@ -7,7 +6,6 @@ import Testimonials from "@/components/Testimonials";
 import CourseRegistrationForm from "@/components/CourseRegistrationForm";
 import { motion } from "framer-motion";
 import { Book, Globe, Users } from "lucide-react";
-// CrawlForm import removed
 
 const OurMissionSection = () => {
   const missionItems = [
@@ -28,7 +26,6 @@ const OurMissionSection = () => {
     }
   ];
 
-  // Variants for entry animation - renamed to avoid conflict
   const containerVariants = {
     hidden: {},
     show: { transition: { staggerChildren: 0.25 } }
@@ -83,16 +80,61 @@ const OurMissionSection = () => {
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-tr from-white via-blue-50 to-purple-50 dark:bg-gradient-to-tr dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <Navbar />
-      <EnhancedHero />
-      <Features />
-      <OurMissionSection />
-      <WhyChooseUs />
-      <Testimonials />
-      {/* CrawlForm has been removed */}
-      <CourseRegistrationForm />
-      <footer className="mt-16 flex flex-col items-center border-t pt-8 gap-2 text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 46, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.95, type: "spring", bounce: 0.27 }}
+      >
+        <EnhancedHero />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, type: "spring", bounce: 0.17 }}
+        viewport={{ once: true, amount: 0.33 }}
+      >
+        <Features />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, type: "spring", bounce: 0.17 }}
+        viewport={{ once: true, amount: 0.33 }}
+      >
+        <OurMissionSection />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96, y: 24 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.88, type: "spring", bounce: 0.15 }}
+        viewport={{ once: true, amount: 0.28 }}
+      >
+        <WhyChooseUs />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96, y: 16 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 1, type: "spring", bounce: 0.12 }}
+        viewport={{ once: true, amount: 0.23 }}
+      >
+        <Testimonials />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 30, scale: 0.96 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.96, type: "spring", bounce: 0.15 }}
+        viewport={{ once: true, amount: 0.15 }}
+      >
+        <CourseRegistrationForm />
+      </motion.div>
+      <motion.footer
+        className="mt-16 flex flex-col items-center border-t pt-8 gap-2 text-center"
+        initial={{ opacity: 0, y: 25 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.19, delay: 0.4, type: "spring" }}
+      >
         <div className="text-gray-700 dark:text-gray-200 font-medium">
           Developer:{" "}
           <span className="font-semibold text-blue-700 dark:text-blue-400">Atif Zeb</span>
@@ -125,7 +167,7 @@ const Index = () => {
             </svg>
           </a>
         </div>
-      </footer>
+      </motion.footer>
     </div>
   );
 };
