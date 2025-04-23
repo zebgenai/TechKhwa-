@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -23,6 +24,9 @@ const initialState = {
   email: "",
   course: ""
 };
+
+const GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbzfLINgy48vKZ0ySskedaIqF0EeCAeCEp8l6B546ozXq09HrdpuF1a3lbPJJrQ7yPwF/exec";
 
 const CourseRegistrationForm = () => {
   const [form, setForm] = useState(initialState);
@@ -51,7 +55,7 @@ const CourseRegistrationForm = () => {
     return err;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const err = validate();
     if (Object.keys(err).length) {
@@ -59,15 +63,33 @@ const CourseRegistrationForm = () => {
       return;
     }
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+
+    try {
+      const res = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(form)
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send data to Google Sheet");
+      }
+
       setForm(initialState);
       setShowCelebration(true);
       toast.success("Registration Successful!", {
         description: "Your application has been submitted.",
         action: { label: "OK", onClick: () => {} }
       });
-    }, 1100);
+    } catch (error) {
+      toast.error("Something went wrong!", {
+        description: "There was a problem submitting your application. Please try again.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
