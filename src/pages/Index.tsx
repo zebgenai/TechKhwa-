@@ -28,12 +28,12 @@ const OurMissionSection = () => {
     }
   ];
 
-  // Variants for entry animation
-  const container = {
+  // Variants for entry animation - renamed to avoid conflict
+  const containerVariants = {
     hidden: {},
     show: { transition: { staggerChildren: 0.25 } }
   };
-  const item = {
+  const itemVariants = {
     hidden: { opacity: 0, y: 60, scale: 0.91 },
     show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.75, type: "spring", bounce: 0.33 } }
   };
@@ -52,26 +52,26 @@ const OurMissionSection = () => {
         
         <motion.div
           className="grid md:grid-cols-3 gap-8"
-          variants={container}
+          variants={containerVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
         >
-          {missionItems.map((item, index) => (
+          {missionItems.map((missionItem, index) => (
             <motion.div
               key={index}
-              variants={item}
+              variants={itemVariants}
               whileHover={{ scale: 1.05, boxShadow: "0 6px 18px rgba(80,0,230,0.26)" }}
               className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center"
             >
               <div className="flex justify-center mb-4">
-                <item.icon className="h-12 w-12 text-blue-600" />
+                <missionItem.icon className="h-12 w-12 text-blue-600" />
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">
-                {item.title}
+                {missionItem.title}
               </h3>
               <p className="text-gray-600 dark:text-gray-300">
-                {item.description}
+                {missionItem.description}
               </p>
             </motion.div>
           ))}
