@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -6,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { toast } from "@/components/ui/sonner";
 import { User, UserRound, Key, Phone, Mail, BookOpen, FilePen } from "lucide-react";
+import SuccessCelebration from "./SuccessCelebration";
 
 const courses = [
   "Cybersecurity Fundamentals",
@@ -27,6 +27,7 @@ const initialState = {
 const CourseRegistrationForm = () => {
   const [form, setForm] = useState(initialState);
   const [submitting, setSubmitting] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false);
   const [errors, setErrors] = useState<any>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,6 +62,7 @@ const CourseRegistrationForm = () => {
     setTimeout(() => {
       setSubmitting(false);
       setForm(initialState);
+      setShowCelebration(true);
       toast.success("Registration Successful!", {
         description: "Your application has been submitted.",
         action: { label: "OK", onClick: () => {} }
@@ -70,6 +72,9 @@ const CourseRegistrationForm = () => {
 
   return (
     <section id="registration" className="py-20 bg-gradient-to-br from-blue-50/40 via-purple-50/20 to-blue-100/10 dark:from-gray-950/90 dark:to-gray-900">
+      {showCelebration && (
+        <SuccessCelebration dismiss={() => setShowCelebration(false)} />
+      )}
       <div className="container max-w-xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-2 text-gradient-primary">Apply for a Course</h2>
         <p className="text-center text-gray-600 dark:text-gray-400 mb-8">Fill out the form to register for your desired course at Techkhwa.</p>
@@ -133,4 +138,3 @@ const CourseRegistrationForm = () => {
 };
 
 export default CourseRegistrationForm;
-
