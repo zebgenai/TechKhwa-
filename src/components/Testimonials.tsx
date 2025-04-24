@@ -14,7 +14,7 @@ const Testimonials = () => {
       name: "Fatima Maroof",
       role: "Full Stack Developer",
       text: "Techkhwa helped me transition from a different field into tech. The mentorship and practical projects were invaluable.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7"
     },
     {
       name: "Michael Chen",
