@@ -13,13 +13,13 @@ const TeamSection = () => {
     {
       name: "Rohullah Hamid",
       role: "Co Founder & CTO",
-      image: "/lovable-uploads/aed35968-7ac9-4b53-83bf-bc6b307dd3e9.png",
+      image: "/lovable-uploads/16ed9cf1-22e8-4926-9f60-6dfc586775f9.png",
       linkedIn: "https://www.linkedin.com/in/rohullah-hamid"
     },
     {
       name: "Syed Hasnain Ali Shah",
       role: "Co Founder & COO",
-      image: "/lovable-uploads/aed35968-7ac9-4b53-83bf-bc6b307dd3e9.png",
+      image: "/lovable-uploads/5eda64ac-dd61-44cc-b2d4-204c4a676303.png",
       linkedIn: "https://www.linkedin.com/in/syed-hasnain-ali-shah"
     }
   ];
