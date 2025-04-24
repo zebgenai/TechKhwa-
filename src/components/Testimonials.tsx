@@ -11,10 +11,10 @@ import { Card, CardContent } from "@/components/ui/card";
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "Fatima Maroof",
       role: "Full Stack Developer",
       text: "Techkhwa helped me transition from a different field into tech. The mentorship and practical projects were invaluable.",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+      image: "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e"
     },
     {
       name: "Michael Chen",
