@@ -7,7 +7,7 @@ const TeamSection = () => {
     {
       name: "Kashif Ali",
       role: "Founder & CEO",
-      image: "/lovable-uploads/aed35968-7ac9-4b53-83bf-bc6b307dd3e9.png",
+      image: "/lovable-uploads/2f31bff6-62aa-4c62-bfdf-63d86e6c7322.png",
       linkedIn: "https://www.linkedin.com/in/kashif-ali"
     },
     {
