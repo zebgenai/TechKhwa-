@@ -1,7 +1,8 @@
 
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
-import { Shield, Bot, Lock } from "lucide-react";
+import { Shield, Bot, Lock, Linkedin } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const About = () => {
   return (
@@ -68,7 +69,28 @@ const About = () => {
                   />
                 </div>
                 <div className="p-6 md:w-2/3">
-                  <h3 className="text-2xl font-bold mb-4">Atif Zeb</h3>
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-2xl font-bold">Atif Zeb</h3>
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Button
+                        variant="outline"
+                        className="flex items-center gap-2 border-blue-500 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 dark:text-blue-400 dark:border-blue-500"
+                        asChild
+                      >
+                        <a
+                          href="https://pk.linkedin.com/in/atif-zeb-76b866290"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Linkedin className="h-4 w-4" />
+                          Connect on LinkedIn
+                        </a>
+                      </Button>
+                    </motion.div>
+                  </div>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
                     A visionary technology expert specializing in Artificial Intelligence, Chatbot Development, and Cybersecurity. With a passion for innovation and a commitment to excellence, Atif is dedicated to pushing the boundaries of what's possible in technology.
                   </p>
