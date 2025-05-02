@@ -8,7 +8,7 @@ import TeamSection from "@/components/TeamSection";
 import Opportunities from "@/components/Opportunities";
 import StudentsEntrepreneurship from "@/components/StudentsEntrepreneurship";
 import { motion } from "framer-motion";
-import { Book, Globe, Users } from "lucide-react";
+import { Book, Copyright, Globe, Users } from "lucide-react";
 
 const OurMissionSection = () => {
   const missionItems = [
@@ -82,6 +82,8 @@ const OurMissionSection = () => {
 };
 
 const Index = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
     <div className="min-h-screen bg-gradient-to-tr from-white via-blue-50 to-purple-50 dark:bg-gradient-to-tr dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <Navbar />
@@ -157,11 +159,15 @@ const Index = () => {
         <CourseRegistrationForm />
       </motion.div>
       <motion.footer
-        className="mt-16 flex flex-col items-center border-t pt-8 gap-2 text-center"
+        className="mt-16 flex flex-col items-center border-t pt-8 pb-8 gap-2 text-center"
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.19, delay: 0.4, type: "spring" }}
       >
+        <div className="flex items-center justify-center text-gray-700 dark:text-gray-200 font-medium mb-2">
+          <Copyright className="h-4 w-4 mr-1" />
+          <span>{currentYear} Techkhwa. All Rights Reserved.</span>
+        </div>
         <div className="text-gray-700 dark:text-gray-200 font-medium">
           Developer:{" "}
           <span className="font-semibold text-blue-700 dark:text-blue-400">Atif Zeb</span>
