@@ -1,12 +1,13 @@
 
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import { Shield, Bot, Lock } from "lucide-react";
 
 const About = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <Navbar />
-      <div className="container mx-auto px-4 pt-24">
+      <div className="container mx-auto px-4 pt-24 pb-16">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -45,6 +46,87 @@ const About = () => {
               </p>
             </motion.div>
           </div>
+          
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+              Meet Atif Zeb
+            </h2>
+            <div className="bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden">
+              <div className="md:flex">
+                <div className="md:w-1/3">
+                  <motion.img 
+                    src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5"
+                    alt="Atif Zeb"
+                    className="h-full w-full object-cover"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </div>
+                <div className="p-6 md:w-2/3">
+                  <h3 className="text-2xl font-bold mb-4">Atif Zeb</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    A visionary technology expert specializing in Artificial Intelligence, Chatbot Development, and Cybersecurity. With a passion for innovation and a commitment to excellence, Atif is dedicated to pushing the boundaries of what's possible in technology.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <motion.div 
+                      className="p-4 bg-blue-50 dark:bg-gray-700 rounded-lg"
+                      whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.5)" }}
+                    >
+                      <div className="flex items-center mb-3">
+                        <Bot className="h-6 w-6 text-blue-600 mr-2" />
+                        <h4 className="font-semibold">AI & Machine Learning</h4>
+                      </div>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        Developing cutting-edge AI solutions that transform businesses and enhance user experiences.
+                      </p>
+                    </motion.div>
+                    <motion.div 
+                      className="p-4 bg-purple-50 dark:bg-gray-700 rounded-lg"
+                      whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(124, 58, 237, 0.5)" }}
+                    >
+                      <div className="flex items-center mb-3">
+                        <Bot className="h-6 w-6 text-purple-600 mr-2" />
+                        <h4 className="font-semibold">Chatbot Development</h4>
+                      </div>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        Creating intelligent conversational interfaces that provide personalized assistance and streamline communications.
+                      </p>
+                    </motion.div>
+                    <motion.div 
+                      className="p-4 bg-green-50 dark:bg-gray-700 rounded-lg"
+                      whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.5)" }}
+                    >
+                      <div className="flex items-center mb-3">
+                        <Shield className="h-6 w-6 text-green-600 mr-2" />
+                        <h4 className="font-semibold">Cybersecurity</h4>
+                      </div>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        Implementing robust security protocols to protect digital assets and ensure data privacy in an increasingly connected world.
+                      </p>
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 p-8 rounded-xl shadow-md"
+          >
+            <h3 className="text-2xl font-bold mb-4">Professional Philosophy</h3>
+            <blockquote className="border-l-4 border-blue-500 pl-4 italic text-gray-600 dark:text-gray-300">
+              "I believe in harnessing the power of technology to solve real-world problems. My goal is to make AI and cybersecurity accessible, understandable, and beneficial for businesses and individuals alike. Innovation is not just about creating something new—it's about making a positive impact."
+            </blockquote>
+            <p className="mt-4 text-right font-semibold">- Atif Zeb</p>
+          </motion.div>
         </motion.div>
       </div>
     </div>
