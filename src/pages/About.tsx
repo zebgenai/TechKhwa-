@@ -60,7 +60,7 @@ const About = () => {
               <div className="md:flex">
                 <div className="md:w-1/3">
                   <motion.img 
-                    src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5"
+                    src="/lovable-uploads/8a9a6737-f1a4-4b2b-9642-bc1f535a3898.png"
                     alt="Atif Zeb"
                     className="h-full w-full object-cover"
                     whileHover={{ scale: 1.05 }}
