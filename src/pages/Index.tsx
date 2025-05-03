@@ -16,13 +16,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-tr from-white via-blue-50 to-purple-50 dark:bg-gradient-to-tr dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <Navbar />
-      <motion.div
-        initial={{ opacity: 0, y: 46, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.95, type: "spring", bounce: 0.27 }}
-      >
-        <EnhancedHero />
-      </motion.div>
+      <EnhancedHero />
+      
       <motion.div
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -31,6 +26,7 @@ const Index = () => {
       >
         <Features />
       </motion.div>
+      
       <motion.div
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -39,6 +35,7 @@ const Index = () => {
       >
         <OurMissionSection />
       </motion.div>
+      
       <motion.div
         initial={{ opacity: 0, scale: 0.96, y: 24 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -47,6 +44,7 @@ const Index = () => {
       >
         <WhyChooseUs />
       </motion.div>
+      
       <motion.div
         initial={{ opacity: 0, scale: 0.96, y: 24 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -55,6 +53,7 @@ const Index = () => {
       >
         <Opportunities />
       </motion.div>
+      
       <motion.div
         initial={{ opacity: 0, scale: 0.96, y: 24 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -63,6 +62,7 @@ const Index = () => {
       >
         <StudentsEntrepreneurship />
       </motion.div>
+      
       <motion.div
         initial={{ opacity: 0, scale: 0.96, y: 16 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -71,6 +71,7 @@ const Index = () => {
       >
         <Testimonials />
       </motion.div>
+      
       <motion.div
         initial={{ opacity: 0, scale: 0.96, y: 16 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -79,6 +80,7 @@ const Index = () => {
       >
         <TeamSection />
       </motion.div>
+      
       <motion.div
         initial={{ opacity: 0, y: 30, scale: 0.96 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -87,6 +89,7 @@ const Index = () => {
       >
         <CourseRegistrationForm />
       </motion.div>
+      
       <Footer />
     </div>
   );
