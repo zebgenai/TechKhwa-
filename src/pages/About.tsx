@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import { Shield, Bot, Lock, Linkedin, ExternalLink, Github, Zap, Code, GanttChart } from "lucide-react";
@@ -258,39 +257,6 @@ const About = () => {
                     </motion.div>
                   </motion.div>
                   
-                  {/* Additional Skills Section */}
-                  <motion.div 
-                    className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6, duration: 0.7 }}
-                  >
-                    <h4 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Additional Expertise</h4>
-                    <div className="flex flex-wrap gap-3">
-                      {[
-                        { name: "Cloud Computing", icon: <GanttChart className="h-3.5 w-3.5" /> },
-                        { name: "Data Analytics", icon: <Zap className="h-3.5 w-3.5" /> },
-                        { name: "Blockchain", icon: <Lock className="h-3.5 w-3.5" /> },
-                        { name: "AR/VR", icon: <ExternalLink className="h-3.5 w-3.5" /> }
-                      ].map((skill, index) => (
-                        <motion.span
-                          key={skill.name}
-                          className="px-3 py-1.5 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 flex items-center gap-2"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.7 + (index * 0.1), duration: 0.4 }}
-                          whileHover={{ 
-                            scale: 1.05, 
-                            boxShadow: "0 2px 10px rgba(0,0,0,0.15)",
-                            backgroundColor: "rgba(59, 130, 246, 0.1)"
-                          }}
-                        >
-                          {skill.icon}
-                          {skill.name}
-                        </motion.span>
-                      ))}
-                    </div>
-                  </motion.div>
                 </div>
               </div>
             </div>
