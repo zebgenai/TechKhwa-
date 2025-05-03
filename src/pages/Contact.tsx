@@ -45,6 +45,27 @@ const Contact = () => {
         throw error;
       }
       
+      // Send email notification after successful database insertion
+      try {
+        const emailResponse = await supabase.functions.invoke('send-contact-email', {
+          body: {
+            name: formData.name,
+            email: formData.email,
+            message: formData.message
+          }
+        });
+
+        if (emailResponse.error) {
+          console.error("Email notification error:", emailResponse.error);
+          // We continue even if email fails, since the data is saved in the database
+        } else {
+          console.log("Email notification sent successfully");
+        }
+      } catch (emailError) {
+        console.error("Failed to send email notification:", emailError);
+        // We continue even if email fails
+      }
+      
       console.log("Form submitted successfully");
       toast({
         title: "Message sent!",
