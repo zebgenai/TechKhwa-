@@ -1,8 +1,9 @@
 
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
-import { Shield, Bot, Lock, Linkedin } from "lucide-react";
+import { Shield, Bot, Lock, Linkedin, ExternalLink, Github, Zap, Code, GanttChart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Footer from "@/components/Footer";
 
 const About = () => {
   return (
@@ -48,36 +49,124 @@ const About = () => {
             </motion.div>
           </div>
           
+          {/* Enhanced Atif Zeb Section with advanced animations */}
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             className="mb-16"
           >
-            <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              Meet Atif Zeb
-            </h2>
-            <div className="bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden">
-              <div className="md:flex">
-                <div className="md:w-1/3">
-                  <motion.img 
-                    src="/lovable-uploads/e310629b-8f40-435b-8a37-51026f8e6555.png"
-                    alt="Atif Zeb"
-                    className="h-full w-full object-cover"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </div>
-                <div className="p-6 md:w-2/3">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-2xl font-bold">Atif Zeb</h3>
+            <div className="flex items-center justify-center mb-10">
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 1, type: "spring", bounce: 0.4 }}
+              >
+                <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 inline-block pr-4">
+                  Meet Atif Zeb
+                </h2>
+              </motion.div>
+              <motion.div 
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 1.2, delay: 0.3 }}
+                className="h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 flex-grow rounded-full"
+              />
+            </div>
+            
+            <div className="bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-900 shadow-xl rounded-xl overflow-hidden transform transition-all duration-500 hover:shadow-blue-200 dark:hover:shadow-blue-900/30">
+              <div className="md:flex relative">
+                {/* Profile Image Section with floating animation */}
+                <motion.div 
+                  className="md:w-2/5 relative overflow-hidden"
+                  initial={{ x: -100, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ type: "spring", duration: 0.8 }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-500/20 z-10" />
+                  <motion.div
+                    animate={{ 
+                      y: [0, -10, 0],
+                      boxShadow: [
+                        "0 10px 25px rgba(0,0,0,0.1)",
+                        "0 20px 35px rgba(0,0,0,0.2)",
+                        "0 10px 25px rgba(0,0,0,0.1)"
+                      ]
+                    }}
+                    transition={{ 
+                      repeat: Infinity,
+                      duration: 5,
+                      ease: "easeInOut"
+                    }}
+                    className="h-full"
+                  >
+                    <img 
+                      src="/lovable-uploads/e310629b-8f40-435b-8a37-51026f8e6555.png"
+                      alt="Atif Zeb"
+                      className="h-full w-full object-cover"
+                    />
+                  </motion.div>
+                  
+                  {/* Animated tech particles */}
+                  <div className="absolute inset-0 z-20 pointer-events-none">
+                    {[...Array(6)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-4 h-4 rounded-full bg-blue-400 dark:bg-blue-500"
+                        style={{
+                          left: `${Math.random() * 100}%`,
+                          top: `${Math.random() * 100}%`,
+                        }}
+                        animate={{
+                          opacity: [0, 0.7, 0],
+                          scale: [0, 1, 0],
+                          y: [0, -20, -40],
+                          x: [0, Math.random() * 20 - 10, Math.random() * 40 - 20]
+                        }}
+                        transition={{
+                          duration: 3 + Math.random() * 2,
+                          repeat: Infinity,
+                          delay: Math.random() * 5,
+                          ease: "easeInOut"
+                        }}
+                      />
+                    ))}
+                  </div>
+                </motion.div>
+                
+                {/* Content Section with staggered animations */}
+                <div className="p-8 md:w-3/5">
+                  <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
                     <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.2 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6 }}
+                      className="flex flex-col"
+                    >
+                      <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
+                        Atif Zeb
+                      </h3>
+                      <motion.span 
+                        className="text-gray-600 dark:text-gray-300 text-lg"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3, duration: 0.5 }}
+                      >
+                        Technology Innovator
+                      </motion.span>
+                    </motion.div>
+                    
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      initial={{ opacity: 0, y: -20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2, duration: 0.6 }}
+                      className="flex gap-3"
                     >
                       <Button
                         variant="outline"
-                        className="flex items-center gap-2 border-blue-500 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 dark:text-blue-400 dark:border-blue-500"
+                        size="sm"
+                        className="flex items-center gap-2 bg-gradient-to-r hover:from-blue-600 hover:to-blue-700 hover:text-white border-blue-500 text-blue-600 dark:text-blue-400 dark:border-blue-500 transition-all duration-300"
                         asChild
                       >
                         <a
@@ -86,55 +175,187 @@ const About = () => {
                           rel="noopener noreferrer"
                         >
                           <Linkedin className="h-4 w-4" />
-                          Connect on LinkedIn
+                          Connect
+                        </a>
+                      </Button>
+                      
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex items-center gap-2 bg-gradient-to-r hover:from-purple-600 hover:to-purple-700 hover:text-white border-purple-500 text-purple-600 dark:text-purple-400 dark:border-purple-500 transition-all duration-300"
+                        asChild
+                      >
+                        <a
+                          href="https://github.com/atifzeb"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Github className="h-4 w-4" />
+                          GitHub
                         </a>
                       </Button>
                     </motion.div>
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    A visionary technology expert specializing in Artificial Intelligence, Chatbot Development, and Cybersecurity. With a passion for innovation and a commitment to excellence, Atif is dedicated to pushing the boundaries of what's possible in technology.
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                  
+                  <motion.p 
+                    className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.7 }}
+                  >
+                    A visionary technology expert specializing in Artificial Intelligence, Chatbot Development, and 
+                    Cybersecurity. With a passion for innovation and a commitment to excellence, Atif is dedicated to 
+                    pushing the boundaries of what's possible in technology and empowering others with technical skills.
+                  </motion.p>
+                  
+                  {/* Expertise Cards with Hover Effects */}
+                  <motion.div 
+                    className="grid grid-cols-1 md:grid-cols-3 gap-4"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.7 }}
+                  >
                     <motion.div 
-                      className="p-4 bg-blue-50 dark:bg-gray-700 rounded-lg"
-                      whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.5)" }}
+                      className="p-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-lg border border-blue-200 dark:border-blue-800"
+                      whileHover={{ 
+                        y: -10, 
+                        boxShadow: "0 15px 30px -10px rgba(59, 130, 246, 0.5)",
+                        backgroundColor: "rgba(59, 130, 246, 0.1)"
+                      }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
-                      <div className="flex items-center mb-3">
-                        <Bot className="h-6 w-6 text-blue-600 mr-2" />
-                        <h4 className="font-semibold">AI & Machine Learning</h4>
-                      </div>
+                      <motion.div 
+                        className="mb-3 flex items-center"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className="p-2 rounded-full bg-blue-100 dark:bg-blue-800 mr-3">
+                          <Bot className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                        </div>
+                        <h4 className="font-semibold text-blue-700 dark:text-blue-300">AI & ML</h4>
+                      </motion.div>
                       <p className="text-sm text-gray-600 dark:text-gray-300">
                         Developing cutting-edge AI solutions that transform businesses and enhance user experiences.
                       </p>
                     </motion.div>
+                    
                     <motion.div 
-                      className="p-4 bg-purple-50 dark:bg-gray-700 rounded-lg"
-                      whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(124, 58, 237, 0.5)" }}
+                      className="p-4 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-indigo-900/30 rounded-lg border border-purple-200 dark:border-purple-800"
+                      whileHover={{ 
+                        y: -10, 
+                        boxShadow: "0 15px 30px -10px rgba(124, 58, 237, 0.5)",
+                        backgroundColor: "rgba(124, 58, 237, 0.1)"
+                      }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
-                      <div className="flex items-center mb-3">
-                        <Bot className="h-6 w-6 text-purple-600 mr-2" />
-                        <h4 className="font-semibold">Chatbot Development</h4>
-                      </div>
+                      <motion.div 
+                        className="mb-3 flex items-center"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className="p-2 rounded-full bg-purple-100 dark:bg-purple-800 mr-3">
+                          <Code className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                        </div>
+                        <h4 className="font-semibold text-purple-700 dark:text-purple-300">Chatbots</h4>
+                      </motion.div>
                       <p className="text-sm text-gray-600 dark:text-gray-300">
-                        Creating intelligent conversational interfaces that provide personalized assistance and streamline communications.
+                        Creating intelligent conversational interfaces that provide personalized assistance.
                       </p>
                     </motion.div>
+                    
                     <motion.div 
-                      className="p-4 bg-green-50 dark:bg-gray-700 rounded-lg"
-                      whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.5)" }}
+                      className="p-4 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-indigo-900/30 rounded-lg border border-green-200 dark:border-green-800"
+                      whileHover={{ 
+                        y: -10, 
+                        boxShadow: "0 15px 30px -10px rgba(16, 185, 129, 0.5)",
+                        backgroundColor: "rgba(16, 185, 129, 0.1)"
+                      }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
-                      <div className="flex items-center mb-3">
-                        <Shield className="h-6 w-6 text-green-600 mr-2" />
-                        <h4 className="font-semibold">Cybersecurity</h4>
-                      </div>
+                      <motion.div 
+                        className="mb-3 flex items-center"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <div className="p-2 rounded-full bg-green-100 dark:bg-green-800 mr-3">
+                          <Shield className="h-5 w-5 text-green-600 dark:text-green-400" />
+                        </div>
+                        <h4 className="font-semibold text-green-700 dark:text-green-300">CyberSec</h4>
+                      </motion.div>
                       <p className="text-sm text-gray-600 dark:text-gray-300">
-                        Implementing robust security protocols to protect digital assets and ensure data privacy in an increasingly connected world.
+                        Implementing robust security protocols to protect digital assets and ensure data privacy.
                       </p>
                     </motion.div>
-                  </div>
+                  </motion.div>
+                  
+                  {/* Additional Skills Section */}
+                  <motion.div 
+                    className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.7 }}
+                  >
+                    <h4 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Additional Expertise</h4>
+                    <div className="flex flex-wrap gap-3">
+                      {[
+                        { name: "Cloud Computing", icon: <GanttChart className="h-3.5 w-3.5" /> },
+                        { name: "Data Analytics", icon: <Zap className="h-3.5 w-3.5" /> },
+                        { name: "Blockchain", icon: <Lock className="h-3.5 w-3.5" /> },
+                        { name: "AR/VR", icon: <ExternalLink className="h-3.5 w-3.5" /> }
+                      ].map((skill, index) => (
+                        <motion.span
+                          key={skill.name}
+                          className="px-3 py-1.5 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 flex items-center gap-2"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.7 + (index * 0.1), duration: 0.4 }}
+                          whileHover={{ 
+                            scale: 1.05, 
+                            boxShadow: "0 2px 10px rgba(0,0,0,0.15)",
+                            backgroundColor: "rgba(59, 130, 246, 0.1)"
+                          }}
+                        >
+                          {skill.icon}
+                          {skill.name}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
+            
+            {/* Quote Section with Parallax Effect */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, type: "spring", bounce: 0.2 }}
+              className="mt-12 relative rounded-xl overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-indigo-600/90 z-10"></div>
+              <motion.div 
+                className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d')] bg-cover bg-center z-0"
+                style={{ backgroundPosition: "center" }}
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <div className="relative z-20 p-10 md:p-16">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3, duration: 0.8 }}
+                >
+                  <blockquote className="text-xl md:text-2xl font-light text-white italic">
+                    "I believe in harnessing the power of technology to solve real-world problems. My goal is to make AI and cybersecurity accessible, understandable, and beneficial for businesses and individuals alike. Innovation is not just about creating something new—it's about making a positive impact."
+                  </blockquote>
+                  <motion.p 
+                    className="mt-6 text-right text-white font-semibold text-lg"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.8, duration: 0.5 }}
+                  >
+                    — Atif Zeb
+                  </motion.p>
+                </motion.div>
+              </div>
+            </motion.div>
           </motion.div>
           
           <motion.div
@@ -151,6 +372,7 @@ const About = () => {
           </motion.div>
         </motion.div>
       </div>
+      <Footer />
     </div>
   );
 };
