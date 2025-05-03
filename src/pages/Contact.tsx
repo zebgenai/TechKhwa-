@@ -29,6 +29,7 @@ const Contact = () => {
     setSubmitting(true);
     
     try {
+      console.log("Submitting form data:", formData);
       const { error } = await supabase
         .from('contact_submissions')
         .insert([
@@ -39,8 +40,12 @@ const Contact = () => {
           }
         ]);
         
-      if (error) throw error;
+      if (error) {
+        console.error("Supabase error:", error);
+        throw error;
+      }
       
+      console.log("Form submitted successfully");
       toast({
         title: "Message sent!",
         description: "Thank you for contacting us. We'll respond as soon as possible.",
