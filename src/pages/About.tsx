@@ -49,7 +49,7 @@ const About = () => {
             </motion.div>
           </div>
           
-          {/* Enhanced Atif Zeb Section with advanced animations */}
+          {/* Enhanced Atif Zeb Section with advanced animations but no blue bubbles */}
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -76,14 +76,13 @@ const About = () => {
             
             <div className="bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-900 shadow-xl rounded-xl overflow-hidden transform transition-all duration-500 hover:shadow-blue-200 dark:hover:shadow-blue-900/30">
               <div className="md:flex relative">
-                {/* Profile Image Section with floating animation */}
+                {/* Profile Image Section with floating animation but no bubbles */}
                 <motion.div 
                   className="md:w-2/5 relative overflow-hidden"
                   initial={{ x: -100, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ type: "spring", duration: 0.8 }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-500/20 z-10" />
                   <motion.div
                     animate={{ 
                       y: [0, -10, 0],
@@ -106,32 +105,6 @@ const About = () => {
                       className="h-full w-full object-cover"
                     />
                   </motion.div>
-                  
-                  {/* Animated tech particles */}
-                  <div className="absolute inset-0 z-20 pointer-events-none">
-                    {[...Array(6)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute w-4 h-4 rounded-full bg-blue-400 dark:bg-blue-500"
-                        style={{
-                          left: `${Math.random() * 100}%`,
-                          top: `${Math.random() * 100}%`,
-                        }}
-                        animate={{
-                          opacity: [0, 0.7, 0],
-                          scale: [0, 1, 0],
-                          y: [0, -20, -40],
-                          x: [0, Math.random() * 20 - 10, Math.random() * 40 - 20]
-                        }}
-                        transition={{
-                          duration: 3 + Math.random() * 2,
-                          repeat: Infinity,
-                          delay: Math.random() * 5,
-                          ease: "easeInOut"
-                        }}
-                      />
-                    ))}
-                  </div>
                 </motion.div>
                 
                 {/* Content Section with staggered animations */}
@@ -321,41 +294,6 @@ const About = () => {
                 </div>
               </div>
             </div>
-            
-            {/* Quote Section with Parallax Effect */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, type: "spring", bounce: 0.2 }}
-              className="mt-12 relative rounded-xl overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-indigo-600/90 z-10"></div>
-              <motion.div 
-                className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d')] bg-cover bg-center z-0"
-                style={{ backgroundPosition: "center" }}
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <div className="relative z-20 p-10 md:p-16">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.3, duration: 0.8 }}
-                >
-                  <blockquote className="text-xl md:text-2xl font-light text-white italic">
-                    "I believe in harnessing the power of technology to solve real-world problems. My goal is to make AI and cybersecurity accessible, understandable, and beneficial for businesses and individuals alike. Innovation is not just about creating something new—it's about making a positive impact."
-                  </blockquote>
-                  <motion.p 
-                    className="mt-6 text-right text-white font-semibold text-lg"
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.8, duration: 0.5 }}
-                  >
-                    — Atif Zeb
-                  </motion.p>
-                </motion.div>
-              </div>
-            </motion.div>
           </motion.div>
           
           <motion.div
