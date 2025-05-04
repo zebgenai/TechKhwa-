@@ -8,6 +8,7 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 import { toast } from "@/components/ui/sonner";
 import { User, UserRound, Key, Phone, Mail, BookOpen, FilePen } from "lucide-react";
 import SuccessCelebration from "./SuccessCelebration";
+import { supabase } from "@/integrations/supabase/client";
 
 const courses = [
   "Cybersecurity Fundamentals",
@@ -25,9 +26,6 @@ const initialState = {
   email: "",
   course: ""
 };
-
-const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzfLINgy48vKZ0ySskedaIqF0EeCAeCEp8l6B546ozXq09HrdpuF1a3lbPJJrQ7yPwF/exec";
 
 const CourseRegistrationForm = () => {
   const [form, setForm] = useState(initialState);
@@ -66,33 +64,44 @@ const CourseRegistrationForm = () => {
     setSubmitting(true);
 
     try {
-      // Create a form data object for submission to Google Scripts
-      // (This helps bypass CORS restrictions)
-      const formData = new FormData();
+      // Save data to Supabase database
+      const { error: dbError } = await supabase
+        .from('course_registrations')
+        .insert({
+          name: form.name,
+          father_name: form.fatherName,
+          cinc: form.cinc,
+          contact: form.contact,
+          email: form.email,
+          course: form.course
+        });
+
+      if (dbError) {
+        throw new Error(`Database error: ${dbError.message}`);
+      }
       
-      // Add the form data as a JSON string parameter
-      formData.append('data', JSON.stringify(form));
-      
-      // Use no-cors mode to ensure the request completes even with CORS limitations
-      await fetch(GOOGLE_SCRIPT_URL + "?action=addRow", {
-        method: "POST",
-        mode: "no-cors", // This ensures the request doesn't fail due to CORS
-        body: formData
+      // Send email notification through edge function
+      const { error: emailError } = await supabase.functions.invoke("course-registration", {
+        body: JSON.stringify(form)
       });
+
+      if (emailError) {
+        console.warn("Email notification failed:", emailError);
+        // Proceed even if email fails, since database insert was successful
+      }
       
-      // Since no-cors mode doesn't return readable response, we assume success
-      // if no error is thrown during fetch
+      // Registration successful
       setForm(initialState);
       setShowCelebration(true);
       toast.success("Registration Successful!", {
         description: "Your application has been submitted.",
         action: { label: "OK", onClick: () => {} }
       });
-    } catch (error) {
-      toast.error("Something went wrong!", {
-        description: "There was a problem submitting your application. Please try again.",
-      });
+    } catch (error: any) {
       console.error("Form submission error:", error);
+      toast.error("Something went wrong!", {
+        description: error.message || "There was a problem submitting your application. Please try again.",
+      });
     } finally {
       setSubmitting(false);
     }
@@ -167,7 +176,7 @@ const CourseRegistrationForm = () => {
           </motion.div>
           {/* Submit */}
           <motion.div className="text-center pt-2" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5 }}>
-            <Button type="submit" disabled={submitting} className="w-full flex items-center justify-center gap-2 transition-transform duration-200 hover:scale-105">
+            <Button type="submit" disabled={submitting} className="w-full flex items-center justify-center gap-2 transition-transform duration-200 hover:scale-105 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
               <FilePen className="w-4 h-4" />
               {submitting ? "Submitting..." : "Submit Application"}
             </Button>

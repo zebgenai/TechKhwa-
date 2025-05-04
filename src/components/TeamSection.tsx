@@ -1,6 +1,7 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
+import { Linkedin } from "lucide-react";
 
 const TeamSection = () => {
   const teamMembers = [
@@ -25,7 +26,7 @@ const TeamSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-white dark:bg-gray-900">
+    <section className="py-20 bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-blue-900/10">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -33,7 +34,15 @@ const TeamSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+          <div className="flex justify-center">
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: "80px" }}
+              transition={{ duration: 0.6 }}
+              className="h-1 bg-gradient-to-r from-blue-600 to-purple-600 mb-4"
+            ></motion.div>
+          </div>
+          <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
             Meet Our Team
           </h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -48,28 +57,31 @@ const TeamSection = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
+              whileHover={{ y: -10 }}
+              className="h-full"
             >
-              <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <CardContent className="p-0">
-                  <div className="aspect-square relative">
-                    <img
+              <Card className="overflow-hidden h-full hover:shadow-2xl transition-shadow duration-300 border-0 shadow-lg bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm">
+                <CardContent className="p-0 h-full flex flex-col">
+                  <div className="overflow-hidden">
+                    <motion.img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-cover"
+                      className="w-full aspect-[4/5] object-cover object-center hover:scale-105 transition-transform duration-500"
+                      whileHover={{ scale: 1.05 }}
                     />
                   </div>
-                  <div className="p-6 text-center">
-                    <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                    <p className="text-gray-600 dark:text-gray-400 mb-4">{member.role}</p>
+                  <div className="p-6 text-center flex flex-col flex-grow justify-between">
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">{member.name}</h3>
+                      <p className="text-gray-600 dark:text-gray-400 mb-4">{member.role}</p>
+                    </div>
                     <a
                       href={member.linkedIn}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                      className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 px-4 rounded-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 mt-auto"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                      </svg>
+                      <Linkedin size={18} /> Connect on LinkedIn
                     </a>
                   </div>
                 </CardContent>

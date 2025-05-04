@@ -33,6 +33,39 @@ export type Database = {
         }
         Relationships: []
       }
+      course_registrations: {
+        Row: {
+          cinc: string
+          contact: string
+          course: string
+          created_at: string
+          email: string
+          father_name: string
+          id: string
+          name: string
+        }
+        Insert: {
+          cinc: string
+          contact: string
+          course: string
+          created_at?: string
+          email: string
+          father_name: string
+          id?: string
+          name: string
+        }
+        Update: {
+          cinc?: string
+          contact?: string
+          course?: string
+          created_at?: string
+          email?: string
+          father_name?: string
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

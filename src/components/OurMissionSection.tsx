@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Book, Globe, Users, Sparkles } from "lucide-react";
+import { Book, Globe, Users, Sparkles, Lightbulb } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const OurMissionSection = () => {
@@ -22,6 +22,12 @@ const OurMissionSection = () => {
       title: "Community Driven",
       description: "Join a vibrant community of learners, mentors, and industry professionals who support your growth journey.",
       gradient: "from-pink-500 to-rose-600"
+    },
+    {
+      icon: Lightbulb,
+      title: "Innovation Focus",
+      description: "Learn to think beyond conventional solutions and develop creative approaches to solve complex technological challenges.",
+      gradient: "from-amber-500 to-orange-600"
     }
   ];
 
@@ -35,7 +41,7 @@ const OurMissionSection = () => {
     show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.75, type: "spring", bounce: 0.33 } },
     hover: { 
       y: -10,
-      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
+      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
       transition: { duration: 0.3, type: "spring", stiffness: 300 }
     }
   };
@@ -43,8 +49,9 @@ const OurMissionSection = () => {
   return (
     <section className="py-24 bg-gradient-to-br from-white via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900/20 relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-full h-96 max-w-5xl bg-gradient-to-r from-blue-400/5 via-violet-300/5 to-purple-300/5 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 relative">
         <motion.div
@@ -60,13 +67,13 @@ const OurMissionSection = () => {
             transition={{ duration: 0.6 }}
             className="flex justify-center mb-6"
           >
-            <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-3 rounded-full shadow-lg">
-              <Sparkles className="h-12 w-12 text-white" />
+            <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-full shadow-lg">
+              <Sparkles className="h-14 w-14 text-white" />
             </div>
           </motion.div>
           
           <motion.h2 
-            className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600"
+            className="text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7 }}
@@ -75,7 +82,7 @@ const OurMissionSection = () => {
           </motion.h2>
           
           <motion.p
-            className="mt-4 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed"
+            className="mt-4 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-xl leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
@@ -85,7 +92,7 @@ const OurMissionSection = () => {
         </motion.div>
         
         <motion.div
-          className="grid md:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
@@ -98,7 +105,7 @@ const OurMissionSection = () => {
               whileHover="hover"
               className="h-full"
             >
-              <Card className="h-full backdrop-blur-sm bg-white/80 dark:bg-gray-800/80 border-0 overflow-hidden shadow-lg">
+              <Card className="h-full backdrop-blur-sm bg-white/90 dark:bg-gray-800/90 border-0 overflow-hidden shadow-lg">
                 <div className={`absolute top-0 left-0 w-2 h-full bg-gradient-to-b ${missionItem.gradient}`}></div>
                 <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-2xl"></div>
                 

@@ -3,3 +3,6 @@ project_id = "plophztpccrdahcbddex"
 
 [functions.send-contact-email]
 verify_jwt = true
+
+[functions.course-registration]
+verify_jwt = false
