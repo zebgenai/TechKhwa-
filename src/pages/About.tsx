@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import { Shield, Bot, Lock, Linkedin, ExternalLink, Github, Zap, Code, GanttChart } from "lucide-react";
@@ -158,7 +159,7 @@ const About = () => {
                         asChild
                       >
                         <a
-                          href="https://github.com/atifzeb"
+                          href="https://github.com/atifcyber7"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
