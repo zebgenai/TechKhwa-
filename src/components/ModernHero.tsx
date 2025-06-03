@@ -1,8 +1,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Sparkles, ArrowRight, Users } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Sparkles } from "lucide-react";
 
 const ModernHero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -135,44 +134,6 @@ const ModernHero = () => {
               and entrepreneurs to thrive in a rapidly evolving world. We foster creativity, 
               growth, and sustainability by connecting you to the right resources and opportunities.
             </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <motion.div
-                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(59, 130, 246, 0.5)" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  to="/modern/courses"
-                  className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl overflow-hidden inline-block"
-                >
-                  <span className="relative z-10 flex items-center space-x-2">
-                    <Users className="h-5 w-5" />
-                    <span>Join Community</span>
-                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </Link>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  to="/modern/about"
-                  className="group px-8 py-4 border-2 border-purple-400 text-purple-400 font-semibold rounded-xl hover:bg-purple-400 hover:text-white transition-all duration-300 inline-block"
-                >
-                  <span className="flex items-center space-x-2">
-                    <span>Learn More</span>
-                  </span>
-                </Link>
-              </motion.div>
-            </motion.div>
           </motion.div>
 
           {/* Interactive Visualization */}
@@ -260,27 +221,6 @@ const ModernHero = () => {
             </div>
           </motion.div>
         </div>
-      </motion.div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-purple-400 rounded-full flex justify-center"
-        >
-          <motion.div
-            animate={{ y: [0, 16, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-purple-400 rounded-full mt-2"
-          />
-        </motion.div>
-        <p className="text-sm text-gray-400 mt-2">Scroll to explore</p>
       </motion.div>
     </section>
   );

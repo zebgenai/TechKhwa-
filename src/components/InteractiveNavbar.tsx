@@ -35,22 +35,16 @@ const InteractiveNavbar = () => {
   };
 
   const navVariants = {
-    hidden: { y: -100 },
+    hidden: { y: -50, opacity: 0 },
     visible: {
       y: 0,
+      opacity: 1,
       transition: {
         type: "spring",
         stiffness: 100,
-        damping: 15
+        damping: 20,
+        duration: 0.6
       }
-    }
-  };
-
-  const linkVariants = {
-    idle: { scale: 1 },
-    hover: { 
-      scale: 1.1,
-      transition: { type: "spring", stiffness: 400, damping: 10 }
     }
   };
 
@@ -59,7 +53,7 @@ const InteractiveNavbar = () => {
       variants={navVariants}
       initial="hidden"
       animate="visible"
-      className={`fixed w-full z-50 transition-all duration-500 ${
+      className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled 
           ? 'bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-purple-500/20' 
           : 'bg-transparent'
@@ -102,12 +96,12 @@ const InteractiveNavbar = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {navItems.map((item, idx) => (
+            {navItems.map((item) => (
               <motion.div
                 key={item.name}
-                variants={linkVariants}
-                initial="idle"
-                whileHover="hover"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
                 className="relative"
               >
                 <Link
@@ -140,26 +134,6 @@ const InteractiveNavbar = () => {
               </motion.div>
             ))}
           </div>
-
-          {/* CTA Button */}
-          <motion.div
-            className="hidden md:block"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Link
-              to="/modern/courses"
-              className="relative px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full overflow-hidden group"
-            >
-              <span className="relative z-10">Get Started</span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600"
-                initial={{ x: "100%" }}
-                whileHover={{ x: "0%" }}
-                transition={{ duration: 0.3 }}
-              />
-            </Link>
-          </motion.div>
 
           {/* Mobile Menu Button */}
           <motion.button
@@ -211,24 +185,6 @@ const InteractiveNavbar = () => {
                 </Link>
               </motion.div>
             ))}
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ 
-                opacity: isOpen ? 1 : 0, 
-                y: isOpen ? 0 : 20 
-              }}
-              transition={{ delay: 0.4 }}
-              className="px-6 pt-2"
-            >
-              <Link
-                to="/modern/courses"
-                className="block w-full py-3 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full"
-                onClick={() => setIsOpen(false)}
-              >
-                Get Started
-              </Link>
-            </motion.div>
           </div>
         </motion.div>
       </div>
