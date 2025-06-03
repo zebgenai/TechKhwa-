@@ -1,7 +1,8 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Sparkles, ArrowRight, Play } from "lucide-react";
+import { Sparkles, ArrowRight, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ModernHero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -108,7 +109,7 @@ const ModernHero = () => {
               className="flex items-center space-x-2 text-blue-400"
             >
               <Sparkles className="h-5 w-5" />
-              <span className="text-sm font-medium tracking-wide uppercase">Welcome to the Future</span>
+              <span className="text-sm font-medium tracking-wide uppercase">Empowering the Next Generation</span>
             </motion.div>
 
             <motion.h1
@@ -117,10 +118,11 @@ const ModernHero = () => {
               transition={{ delay: 0.7, type: "spring", stiffness: 100 }}
               className="text-5xl lg:text-7xl font-bold leading-tight"
             >
-              <span className="block text-white mb-2">Empower Your</span>
+              <span className="block text-white mb-2">Empowering</span>
               <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Tech Journey
+                Tech Innovators
               </span>
+              <span className="block text-white text-3xl lg:text-4xl mt-2">of Tomorrow</span>
             </motion.h1>
 
             <motion.p
@@ -129,9 +131,9 @@ const ModernHero = () => {
               transition={{ delay: 0.9 }}
               className="text-xl text-gray-300 leading-relaxed max-w-2xl"
             >
-              Experience the future of learning with our cutting-edge platform. 
-              Master AI, cybersecurity, and emerging technologies through immersive, 
-              hands-on education that adapts to tomorrow's challenges.
+              Join our vibrant, innovative tech ecosystem that empowers students, professionals, 
+              and entrepreneurs to thrive in a rapidly evolving world. We foster creativity, 
+              growth, and sustainability by connecting you to the right resources and opportunities.
             </motion.p>
 
             <motion.div
@@ -140,28 +142,36 @@ const ModernHero = () => {
               transition={{ delay: 1.1 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <motion.button
+              <motion.div
                 whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(59, 130, 246, 0.5)" }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl overflow-hidden"
               >
-                <span className="relative z-10 flex items-center space-x-2">
-                  <span>Start Learning</span>
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.button>
+                <Link
+                  to="/modern/courses"
+                  className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl overflow-hidden inline-block"
+                >
+                  <span className="relative z-10 flex items-center space-x-2">
+                    <Users className="h-5 w-5" />
+                    <span>Join Community</span>
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </Link>
+              </motion.div>
 
-              <motion.button
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-8 py-4 border-2 border-purple-400 text-purple-400 font-semibold rounded-xl hover:bg-purple-400 hover:text-white transition-all duration-300"
               >
-                <span className="flex items-center space-x-2">
-                  <Play className="h-5 w-5" />
-                  <span>Watch Demo</span>
-                </span>
-              </motion.button>
+                <Link
+                  to="/modern/about"
+                  className="group px-8 py-4 border-2 border-purple-400 text-purple-400 font-semibold rounded-xl hover:bg-purple-400 hover:text-white transition-all duration-300 inline-block"
+                >
+                  <span className="flex items-center space-x-2">
+                    <span>Learn More</span>
+                  </span>
+                </Link>
+              </motion.div>
             </motion.div>
           </motion.div>
 

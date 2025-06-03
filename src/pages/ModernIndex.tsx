@@ -3,11 +3,15 @@ import InteractiveNavbar from "@/components/InteractiveNavbar";
 import ModernHero from "@/components/ModernHero";
 import EnhancedFeatures from "@/components/EnhancedFeatures";
 import ParallaxSection from "@/components/ParallaxSection";
+import OurVisionSection from "@/components/OurVisionSection";
+import OurMissionSection from "@/components/OurMissionSection";
+import CoreValuesSection from "@/components/CoreValuesSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Opportunities from "@/components/Opportunities";
 import StudentsEntrepreneurship from "@/components/StudentsEntrepreneurship";
 import Testimonials from "@/components/Testimonials";
 import TeamSection from "@/components/TeamSection";
+import LaunchingCeremonySection from "@/components/LaunchingCeremonySection";
 import CourseRegistrationForm from "@/components/CourseRegistrationForm";
 import ModernFooter from "@/components/ModernFooter";
 import { motion } from "framer-motion";
@@ -17,6 +21,33 @@ const ModernIndex = () => {
     <div className="min-h-screen bg-slate-900 overflow-x-hidden">
       <InteractiveNavbar />
       <ModernHero />
+      
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <OurVisionSection />
+      </motion.div>
+      
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <OurMissionSection />
+      </motion.div>
+      
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <CoreValuesSection />
+      </motion.div>
       
       <motion.div
         initial={{ opacity: 0 }}
@@ -72,6 +103,15 @@ const ModernIndex = () => {
         viewport={{ once: true, amount: 0.2 }}
       >
         <TeamSection />
+      </motion.div>
+      
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <LaunchingCeremonySection />
       </motion.div>
       
       <motion.div
