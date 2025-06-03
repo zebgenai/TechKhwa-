@@ -86,16 +86,19 @@ const Index = () => {
     {
       name: "Kashif Ali",
       position: "Founder & CEO",
+      image: "/lovable-uploads/b744b657-f441-47b5-940f-7c69da4136e2.png",
       gradient: "from-blue-500 to-purple-500"
     },
     {
-      name: "Rohullah Hamid",
+      name: "Rooh Ullah",
       position: "Co Founder & CTO",
+      image: "/lovable-uploads/db8f9294-8d98-4702-af17-404d59ddbd25.png",
       gradient: "from-purple-500 to-pink-500"
     },
     {
-      name: "Syed Hasnain Ali Shah",
+      name: "Hassnain",
       position: "Co Founder & COO",
+      image: "/lovable-uploads/4e7bb6d8-c11b-42bf-9411-14edf83be201.png",
       gradient: "from-green-500 to-teal-500"
     }
   ];
@@ -534,7 +537,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed font-medium"
             >
               Meet the talented team behind TechKhwa. Together, we bring years of experience and a shared 
               commitment to helping others achieve their goals. We're here to guide you every step of the way.
@@ -546,7 +549,7 @@ const Index = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+            className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"
           >
             {teamMembers.map((member, index) => (
               <motion.div
@@ -558,26 +561,25 @@ const Index = () => {
                 viewport={{ once: true }}
                 className="group h-full"
               >
-                <Card className="h-full bg-gradient-to-b from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm hover:border-green-500/50 transition-all duration-500 overflow-hidden relative">
-                  <CardContent className="p-8 relative z-10 text-center">
-                    <motion.div
-                      whileHover={{ 
-                        rotate: [0, -5, 5, 0],
-                        scale: 1.1
-                      }}
-                      transition={{ duration: 0.5 }}
-                      className={`w-20 h-20 rounded-full bg-gradient-to-r ${member.gradient} mb-6 mx-auto flex items-center justify-center shadow-lg group-hover:shadow-xl`}
-                    >
-                      <Users className="h-10 w-10 text-white" />
-                    </motion.div>
+                <Card className="h-full bg-gradient-to-b from-slate-800/90 to-slate-900/90 border-slate-700 backdrop-blur-sm hover:border-green-500/50 transition-all duration-500 overflow-hidden relative shadow-2xl">
+                  <CardContent className="p-0 relative z-10">
+                    <div className="overflow-hidden">
+                      <motion.img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full aspect-[4/5] object-cover object-center hover:scale-105 transition-transform duration-500"
+                        whileHover={{ scale: 1.05 }}
+                      />
+                    </div>
+                    <div className="p-8 text-center">
+                      <h3 className="text-2xl lg:text-3xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:to-teal-400 transition-all duration-300">
+                        {member.name}
+                      </h3>
 
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:to-teal-400 transition-all duration-300">
-                      {member.name}
-                    </h3>
-
-                    <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
-                      {member.position}
-                    </p>
+                      <p className="text-gray-200 group-hover:text-gray-100 transition-colors duration-300 text-lg font-semibold">
+                        {member.position}
+                      </p>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
