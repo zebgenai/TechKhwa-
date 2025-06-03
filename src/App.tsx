@@ -6,6 +6,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ModernIndex from "./pages/ModernIndex";
+import ModernAbout from "./pages/ModernAbout";
+import ModernCourses from "./pages/ModernCourses";
+import ModernContact from "./pages/ModernContact";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Courses from "./pages/Courses";
@@ -24,6 +27,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/classic" element={<Index />} />
           <Route path="/modern" element={<ModernIndex />} />
+          <Route path="/modern/about" element={<ModernAbout />} />
+          <Route path="/modern/courses" element={<ModernCourses />} />
+          <Route path="/modern/contact" element={<ModernContact />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/courses" element={<Courses />} />

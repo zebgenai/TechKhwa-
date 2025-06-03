@@ -1,7 +1,7 @@
 
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const InteractiveNavbar = () => {
@@ -15,10 +15,10 @@ const InteractiveNavbar = () => {
   });
 
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "Courses", path: "/courses" },
-    { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" }
+    { name: "Home", path: "/modern" },
+    { name: "Courses", path: "/modern/courses" },
+    { name: "About", path: "/modern/about" },
+    { name: "Contact", path: "/modern/contact" }
   ];
 
   const logoVariants = {
@@ -68,7 +68,7 @@ const InteractiveNavbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/modern" className="flex items-center space-x-3">
             <motion.div
               variants={logoVariants}
               whileHover={{ rotate: 360, scale: 1.1 }}
@@ -148,7 +148,7 @@ const InteractiveNavbar = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Link
-              to="/courses"
+              to="/modern/courses"
               className="relative px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full overflow-hidden group"
             >
               <span className="relative z-10">Get Started</span>
@@ -222,7 +222,7 @@ const InteractiveNavbar = () => {
               className="px-6 pt-2"
             >
               <Link
-                to="/courses"
+                to="/modern/courses"
                 className="block w-full py-3 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full"
                 onClick={() => setIsOpen(false)}
               >
