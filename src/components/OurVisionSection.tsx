@@ -1,9 +1,11 @@
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Eye, Sparkles, Globe, Lightbulb } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const OurVisionSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const visionPoints = [
     {
       icon: Globe,
@@ -25,27 +27,50 @@ const OurVisionSection = () => {
     }
   ];
 
+  const reducedAnimations = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.3 } }
+  };
+
+  const fullAnimations = {
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      scale: 0.95
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const animations = shouldReduceMotion ? reducedAnimations : fullAnimations;
+
   return (
-    <section className="py-24 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-900 to-slate-900" />
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900/20 to-purple-900/30 relative overflow-hidden">
+      {/* Simplified Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 to-purple-900/10" />
       
-      {/* Animated Particles */}
-      {Array.from({ length: 20 }, (_, i) => (
+      {/* Reduced Particles for Performance */}
+      {!shouldReduceMotion && Array.from({ length: 8 }, (_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 bg-blue-400 rounded-full opacity-30"
+          className="absolute w-1 h-1 bg-blue-400/40 rounded-full"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
           }}
           animate={{
-            y: [0, -50, 0],
-            opacity: [0.3, 0.7, 0.3],
-            scale: [1, 1.5, 1],
+            y: [-20, -40, -20],
+            opacity: [0.2, 0.6, 0.2],
           }}
           transition={{
-            duration: Math.random() * 3 + 2,
+            duration: 4 + Math.random() * 2,
             repeat: Infinity,
             delay: Math.random() * 2,
           }}
@@ -54,31 +79,34 @@ const OurVisionSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
+          variants={animations}
           className="text-center mb-16"
         >
           <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            whileInView={{ scale: 1, rotate: 0 }}
-            transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
             className="inline-block mb-6"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-xl opacity-60 animate-pulse" />
-              <div className="relative bg-gradient-to-r from-blue-500 to-purple-500 p-4 rounded-full">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-full blur-xl" />
+              <div className="relative bg-gradient-to-r from-blue-500 to-purple-500 p-4 rounded-full shadow-2xl">
                 <Eye className="h-12 w-12 text-white" />
               </div>
             </div>
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-5xl font-bold mb-6"
+            transition={{ delay: 0.2, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-5xl lg:text-6xl font-bold mb-6"
           >
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Our Vision
@@ -86,9 +114,10 @@ const OurVisionSection = () => {
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            viewport={{ once: true }}
             className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
           >
             Our vision is to create a vibrant, innovative tech ecosystem that empowers students, 
@@ -99,39 +128,33 @@ const OurVisionSection = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          viewport={{ once: true }}
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.6, staggerChildren: 0.1 }}
+          viewport={{ once: true, amount: 0.2 }}
           className="grid md:grid-cols-3 gap-8"
         >
           {visionPoints.map((point, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: index * 0.2, duration: 0.6, type: "spring" }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              viewport={{ once: true }}
+              variants={animations}
+              whileHover={shouldReduceMotion ? {} : { y: -5, scale: 1.02 }}
+              transition={{ duration: 0.3 }}
               className="group h-full"
             >
-              <Card className="h-full bg-gradient-to-b from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm hover:border-purple-500/50 transition-all duration-500 overflow-hidden relative">
-                {/* Glow Effect */}
+              <Card className="h-full bg-gradient-to-b from-slate-800/60 to-slate-900/60 border-slate-700/50 backdrop-blur-md hover:border-purple-500/30 transition-all duration-300 overflow-hidden relative">
                 <motion.div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{
-                    background: `radial-gradient(circle at center, rgba(147, 51, 234, 0.2), transparent 70%)`
+                    background: `radial-gradient(circle at center, rgba(147, 51, 234, 0.1), transparent 70%)`
                   }}
                 />
 
                 <CardContent className="p-8 relative z-10 text-center">
                   <motion.div
-                    whileHover={{ 
-                      rotate: [0, -10, 10, 0],
-                      scale: 1.1
-                    }}
-                    transition={{ duration: 0.5 }}
-                    className={`inline-block p-4 rounded-xl bg-gradient-to-r ${point.gradient} mb-6 shadow-lg group-hover:shadow-xl`}
+                    whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                    className={`inline-block p-4 rounded-xl bg-gradient-to-r ${point.gradient} mb-6 shadow-lg`}
                   >
                     <point.icon className="h-8 w-8 text-white" />
                   </motion.div>
@@ -144,12 +167,12 @@ const OurVisionSection = () => {
                     {point.description}
                   </p>
 
-                  {/* Animated Border */}
                   <motion.div
                     className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${point.gradient}`}
                     initial={{ width: "0%" }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.3 }}
+                    whileInView={{ width: "100%" }}
+                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                    viewport={{ once: true }}
                   />
                 </CardContent>
               </Card>

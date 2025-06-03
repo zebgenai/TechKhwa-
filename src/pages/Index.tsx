@@ -14,59 +14,51 @@ import LaunchingCeremonySection from "@/components/LaunchingCeremonySection";
 import CourseRegistrationForm from "@/components/CourseRegistrationForm";
 import Footer from "@/components/Footer";
 import InteractiveNavbar from "@/components/InteractiveNavbar";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect } from "react";
 
 const Index = () => {
-  // Enhanced smooth scrolling
+  const shouldReduceMotion = useReducedMotion();
+
+  // Optimized smooth scrolling
   useEffect(() => {
-    const smoothScroll = () => {
-      document.documentElement.style.scrollBehavior = 'smooth';
-    };
-    smoothScroll();
-
-    // Custom smooth scrolling with momentum
-    let isScrolling = false;
-    const handleScroll = () => {
-      if (!isScrolling) {
-        window.requestAnimationFrame(() => {
-          isScrolling = false;
-        });
-        isScrolling = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const sectionVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 60,
-      scale: 0.95
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        staggerChildren: 0.1
-      }
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
+    if (!shouldReduceMotion) {
+      // Performance optimization for animations
+      const optimizeAnimations = () => {
+        document.documentElement.style.setProperty('--animation-duration', '0.3s');
+      };
+      optimizeAnimations();
     }
-  };
+  }, [shouldReduceMotion]);
+
+  const sectionVariants = shouldReduceMotion ? 
+    {
+      hidden: { opacity: 0 },
+      visible: { opacity: 1, transition: { duration: 0.3 } }
+    } :
+    {
+      hidden: { 
+        opacity: 0, 
+        y: 30
+      },
+      visible: { 
+        opacity: 1, 
+        y: 0,
+        transition: {
+          duration: 0.6,
+          ease: "easeOut"
+        }
+      }
+    };
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1
+        staggerChildren: shouldReduceMotion ? 0 : 0.1
       }
     }
   };
@@ -80,16 +72,16 @@ const Index = () => {
     >
       <InteractiveNavbar />
       
-      {/* Enhanced Hero Section */}
+      {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
+        transition={{ duration: shouldReduceMotion ? 0.3 : 1 }}
       >
         <ModernHero />
       </motion.div>
       
-      {/* Animated Sections with Enhanced Stagger Effect */}
+      {/* Optimized Sections */}
       <motion.div
         variants={containerVariants}
         className="space-y-0"
@@ -98,7 +90,7 @@ const Index = () => {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <OurVisionSection />
         </motion.div>
@@ -107,7 +99,7 @@ const Index = () => {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <OurMissionSection />
         </motion.div>
@@ -116,7 +108,7 @@ const Index = () => {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <CoreValuesSection />
         </motion.div>
@@ -125,17 +117,17 @@ const Index = () => {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <EnhancedFeatures />
         </motion.div>
         
-        {/* Enhanced Parallax Section */}
+        {/* Technology Education Section */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.2 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: shouldReduceMotion ? 0.3 : 0.8 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           <ParallaxSection />
         </motion.div>
@@ -144,7 +136,7 @@ const Index = () => {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <WhyChooseUs />
         </motion.div>
@@ -153,7 +145,7 @@ const Index = () => {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <Opportunities />
         </motion.div>
@@ -162,7 +154,7 @@ const Index = () => {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <StudentsEntrepreneurship />
         </motion.div>
@@ -171,7 +163,7 @@ const Index = () => {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <Testimonials />
         </motion.div>
@@ -180,7 +172,7 @@ const Index = () => {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <TeamSection />
         </motion.div>
@@ -189,7 +181,7 @@ const Index = () => {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <LaunchingCeremonySection />
         </motion.div>
@@ -198,17 +190,17 @@ const Index = () => {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <CourseRegistrationForm />
         </motion.div>
       </motion.div>
       
-      {/* Enhanced Footer */}
+      {/* Footer */}
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: shouldReduceMotion ? 0.3 : 0.8 }}
         viewport={{ once: true }}
       >
         <Footer />
