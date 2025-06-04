@@ -1,6 +1,7 @@
 
 import { motion, useTransform, useScroll } from "framer-motion";
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 
 const EnhancedHero = () => {
   // Parallax background with proper container positioning
@@ -101,26 +102,34 @@ const EnhancedHero = () => {
                 transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
                 className="space-x-4"
               >
-                <motion.a
+                <motion.div
                   variants={buttonVariants}
                   initial="initial"
                   whileHover="hover"
                   whileTap="tap"
-                  className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                  href="/courses"
+                  className="inline-block"
                 >
-                  Explore Courses
-                </motion.a>
-                <motion.a
+                  <Link
+                    to="/modern-courses"
+                    className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors inline-block"
+                  >
+                    Explore Courses
+                  </Link>
+                </motion.div>
+                <motion.div
                   variants={buttonVariants}
                   initial="initial"
                   whileHover="hover"
                   whileTap="tap"
-                  className="inline-block px-8 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
-                  href="/about"
+                  className="inline-block"
                 >
-                  Learn More
-                </motion.a>
+                  <Link
+                    to="/modern-about"
+                    className="px-8 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors inline-block"
+                  >
+                    Learn More
+                  </Link>
+                </motion.div>
               </motion.div>
             </motion.div>
 
