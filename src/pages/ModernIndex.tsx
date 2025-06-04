@@ -14,7 +14,6 @@ import TeamSection from "@/components/TeamSection";
 import LaunchingCeremonySection from "@/components/LaunchingCeremonySection";
 import CourseRegistrationForm from "@/components/CourseRegistrationForm";
 import ModernFooter from "@/components/ModernFooter";
-import { motion } from "framer-motion";
 
 const ModernIndex = () => {
   return (
@@ -22,106 +21,51 @@ const ModernIndex = () => {
       <InteractiveNavbar />
       <ModernHero />
       
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
+      <div>
         <OurVisionSection />
-      </motion.div>
+      </div>
       
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
+      <div>
         <OurMissionSection />
-      </motion.div>
+      </div>
       
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
+      <div>
         <CoreValuesSection />
-      </motion.div>
+      </div>
       
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
+      <div>
         <EnhancedFeatures />
-      </motion.div>
+      </div>
       
       <ParallaxSection />
       
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
+      <div>
         <WhyChooseUs />
-      </motion.div>
+      </div>
       
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
+      <div>
         <Opportunities />
-      </motion.div>
+      </div>
       
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
+      <div>
         <StudentsEntrepreneurship />
-      </motion.div>
+      </div>
       
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
+      <div>
         <Testimonials />
-      </motion.div>
+      </div>
       
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
+      <div>
         <TeamSection />
-      </motion.div>
+      </div>
       
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
+      <div>
         <LaunchingCeremonySection />
-      </motion.div>
+      </div>
       
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
+      <div>
         <CourseRegistrationForm />
-      </motion.div>
+      </div>
       
       <ModernFooter />
     </div>
