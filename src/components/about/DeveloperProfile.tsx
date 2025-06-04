@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Shield, Bot, Code, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -22,11 +23,11 @@ const DeveloperProfile = () => {
         >
           <h2 className="text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Lead Developer
+              Founder of Techkhwa
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Meet our talented developer who brings technical excellence to every project
+            Meet our talented founder who brings technical excellence to every project
           </p>
         </motion.div>
 
@@ -52,8 +53,8 @@ const DeveloperProfile = () => {
                   className="h-full"
                 >
                   <img 
-                    src="/lovable-uploads/709b4776-e124-4222-9db6-eb8455d8a8cf.png"
-                    alt="Lead Developer"
+                    src="/lovable-uploads/a2269442-850d-4272-906e-fd15df338108.png"
+                    alt="Founder of Techkhwa"
                     className="h-full w-full object-cover min-h-[400px] max-h-[500px]"
                   />
                 </motion.div>
@@ -114,7 +115,7 @@ const DeveloperProfile = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.7 }}
                 >
-                  A passionate developer with expertise in cutting-edge technologies, specializing in 
+                  A passionate founder with expertise in cutting-edge technologies, specializing in 
                   Artificial Intelligence, Machine Learning, Cybersecurity, Networking, and AI Chatbot development. 
                   Dedicated to creating innovative solutions that push the boundaries of technology.
                 </motion.p>
