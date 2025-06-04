@@ -2,8 +2,11 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Shield, Cpu, Code, Cloud, Network, Database, Star, Clock, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 import InteractiveNavbar from "@/components/InteractiveNavbar";
 import ModernFooter from "@/components/ModernFooter";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 const ModernCourses = () => {
   const containerRef = useRef(null);
@@ -11,6 +14,20 @@ const ModernCourses = () => {
     target: containerRef,
     offset: ["start end", "end start"]
   });
+  const { toast } = useToast();
+
+  const handleEnrollClick = (courseTitle: string) => {
+    toast({
+      title: "Enrollment Started!",
+      description: `You've started enrollment for ${courseTitle}. Redirecting to registration...`,
+    });
+    
+    // Simulate enrollment process
+    setTimeout(() => {
+      // In a real app, this would redirect to a payment/enrollment page
+      window.location.href = "/modern#course-registration";
+    }, 2000);
+  };
 
   const courses = [
     {
@@ -253,13 +270,12 @@ const ModernCourses = () => {
                       </div>
                     </div>
 
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`w-full py-3 rounded-xl bg-gradient-to-r ${course.gradient} text-white font-semibold hover:shadow-lg transition-all duration-300`}
+                    <Button
+                      onClick={() => handleEnrollClick(course.title)}
+                      className={`w-full py-3 rounded-xl bg-gradient-to-r ${course.gradient} text-white font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105`}
                     >
                       Enroll Now
-                    </motion.button>
+                    </Button>
                   </div>
                 </div>
               </motion.div>
