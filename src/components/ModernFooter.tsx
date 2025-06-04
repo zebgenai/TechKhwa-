@@ -26,6 +26,14 @@ const ModernFooter = () => {
     "Cloud Computing"
   ];
 
+  const legalLinks = [
+    { name: "Privacy Policy", path: "/privacy" },
+    { name: "Terms of Service", path: "/terms" },
+    { name: "Cookie Policy", path: "/cookies" },
+    { name: "Refund Policy", path: "/refund" },
+    { name: "Disclaimer", path: "/disclaimer" },
+  ];
+
   return (
     <footer className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
       {/* Animated Background */}
@@ -55,7 +63,7 @@ const ModernFooter = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 py-16">
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-8">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -178,6 +186,45 @@ const ModernFooter = () => {
             </ul>
           </motion.div>
 
+          {/* Legal Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="lg:col-span-1"
+          >
+            <h3 className="text-xl font-bold text-white mb-6 relative">
+              Legal & Policies
+              <motion.div
+                className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"
+                initial={{ width: 0 }}
+                whileInView={{ width: "3rem" }}
+                transition={{ duration: 0.6, delay: 0.45 }}
+              />
+            </h3>
+            <ul className="space-y-3">
+              {legalLinks.map((link, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.35 + index * 0.1 }}
+                >
+                  <Link
+                    to={link.path}
+                    className="text-gray-300 hover:text-purple-400 transition-colors duration-300 flex items-center group text-sm"
+                  >
+                    <motion.span
+                      className="w-2 h-2 rounded-full bg-purple-500 mr-3 opacity-0 group-hover:opacity-100"
+                      whileHover={{ scale: 1.5 }}
+                    />
+                    {link.name}
+                  </Link>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -233,8 +280,10 @@ const ModernFooter = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="border-t border-slate-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
         >
-          <p className="text-gray-400 mb-4 md:mb-0 flex items-center">
-            © 2025 Techkhwa. Developed by Atif Zeb. Made with 
+          <p className="text-gray-400 mb-4 md:mb-0 flex items-center text-center md:text-left">
+            © 2025 Techkhwa. Developed by{" "}
+            <span className="text-purple-400 font-semibold mx-1">Atif Zeb</span>. 
+            Made with 
             <motion.span
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1, repeat: Infinity }}
@@ -245,16 +294,16 @@ const ModernFooter = () => {
             for the future of tech education.
           </p>
           
-          <div className="flex space-x-6 text-sm text-gray-400">
-            <Link to="#" className="hover:text-purple-400 transition-colors duration-300">
-              Privacy Policy
-            </Link>
-            <Link to="#" className="hover:text-purple-400 transition-colors duration-300">
-              Terms of Service
-            </Link>
-            <Link to="#" className="hover:text-purple-400 transition-colors duration-300">
-              Cookie Policy
-            </Link>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+            {legalLinks.slice(0, 3).map((link, index) => (
+              <Link 
+                key={index}
+                to={link.path} 
+                className="hover:text-purple-400 transition-colors duration-300"
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
         </motion.div>
       </div>
