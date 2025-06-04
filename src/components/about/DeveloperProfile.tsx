@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Shield, Bot, Code, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -22,206 +23,184 @@ const DeveloperProfile = () => {
         >
           <h2 className="text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Founder of Techkhwa
+              Meet Our Founder
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Meet our talented founder who brings technical excellence to every project
+            The visionary leader behind Techkhwa's innovative approach to technology education
           </p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-gradient-to-br from-slate-700/50 to-slate-800/50 rounded-2xl border border-slate-600 overflow-hidden">
-            <div className="lg:flex">
-              {/* Image Section */}
-              <motion.div 
-                className="lg:w-2/5 relative overflow-hidden"
-                initial={{ x: -100, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ type: "spring", duration: 0.8 }}
+        <div className="max-w-4xl mx-auto flex justify-center">
+          {/* Profile Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="bg-white rounded-3xl shadow-2xl overflow-hidden max-w-md w-full"
+          >
+            {/* Profile Image Section */}
+            <div className="relative h-80 bg-gradient-to-br from-blue-50 to-purple-50">
+              <motion.div
+                animate={{ 
+                  y: [0, -10, 0],
+                }}
+                transition={{ 
+                  repeat: Infinity,
+                  duration: 5,
+                  ease: "easeInOut"
+                }}
+                className="absolute top-4 right-4"
               >
-                <motion.div
-                  animate={{ 
-                    y: [0, -10, 0],
-                  }}
-                  transition={{ 
-                    repeat: Infinity,
-                    duration: 5,
-                    ease: "easeInOut"
-                  }}
-                  className="h-full"
-                >
-                  <img 
-                    src="/lovable-uploads/8bff5b03-0f3f-4c0c-b2fe-11969f6b1f05.png"
-                    alt="Founder of Techkhwa"
-                    className="h-full w-full object-cover object-center min-h-[450px] max-h-[550px]"
-                  />
-                </motion.div>
+                <div className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium">
+                  Founder
+                </div>
               </motion.div>
               
-              {/* Content Section */}
-              <div className="p-8 lg:w-3/5">
-                <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="flex flex-col"
-                  >
-                    <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-                      Lead Developer
-                    </h3>
-                    <motion.span 
-                      className="text-gray-300 text-lg"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.3, duration: 0.5 }}
-                    >
-                      Full Stack & AI Specialist
-                    </motion.span>
-                  </motion.div>
-                  
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.6 }}
-                    className="flex gap-3"
-                  >
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="flex items-center gap-2 bg-gradient-to-r hover:from-blue-600 hover:to-blue-700 hover:text-white border-blue-500 text-blue-400 transition-all duration-300"
-                    >
-                      <Linkedin className="h-4 w-4" />
-                      Connect
-                    </Button>
-                    
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="flex items-center gap-2 bg-gradient-to-r hover:from-purple-600 hover:to-purple-700 hover:text-white border-purple-500 text-purple-400 transition-all duration-300"
-                    >
-                      <Github className="h-4 w-4" />
-                      GitHub
-                    </Button>
-                  </motion.div>
-                </div>
-                
-                <motion.p 
-                  className="text-gray-300 mb-8 leading-relaxed text-lg"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.7 }}
-                >
-                  A passionate founder with expertise in cutting-edge technologies, specializing in 
-                  Artificial Intelligence, Machine Learning, Cybersecurity, Networking, and AI Chatbot development. 
-                  Dedicated to creating innovative solutions that push the boundaries of technology.
-                </motion.p>
-                
-                {/* Expertise Cards */}
-                <motion.div 
-                  className="grid grid-cols-1 md:grid-cols-2 gap-4"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4, duration: 0.7 }}
-                >
-                  <motion.div 
-                    className="p-4 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-lg border border-blue-800"
-                    whileHover={{ 
-                      y: -10, 
-                      boxShadow: "0 15px 30px -10px rgba(59, 130, 246, 0.5)",
-                      backgroundColor: "rgba(59, 130, 246, 0.1)"
-                    }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <motion.div 
-                      className="mb-3 flex items-center"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <div className="p-2 rounded-full bg-blue-800 mr-3">
-                        <Bot className="h-5 w-5 text-blue-400" />
-                      </div>
-                      <h4 className="font-semibold text-blue-300">AI & ML</h4>
-                    </motion.div>
-                    <p className="text-sm text-gray-300">
-                      Advanced machine learning algorithms and artificial intelligence solutions.
-                    </p>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="p-4 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-lg border border-red-800"
-                    whileHover={{ 
-                      y: -10, 
-                      boxShadow: "0 15px 30px -10px rgba(239, 68, 68, 0.5)",
-                      backgroundColor: "rgba(239, 68, 68, 0.1)"
-                    }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <motion.div 
-                      className="mb-3 flex items-center"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <div className="p-2 rounded-full bg-red-800 mr-3">
-                        <Shield className="h-5 w-5 text-red-400" />
-                      </div>
-                      <h4 className="font-semibold text-red-300">Cyber Security</h4>
-                    </motion.div>
-                    <p className="text-sm text-gray-300">
-                      Comprehensive security protocols and threat protection systems.
-                    </p>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="p-4 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-lg border border-green-800"
-                    whileHover={{ 
-                      y: -10, 
-                      boxShadow: "0 15px 30px -10px rgba(34, 197, 94, 0.5)",
-                      backgroundColor: "rgba(34, 197, 94, 0.1)"
-                    }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <motion.div 
-                      className="mb-3 flex items-center"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <div className="p-2 rounded-full bg-green-800 mr-3">
-                        <Network className="h-5 w-5 text-green-400" />
-                      </div>
-                      <h4 className="font-semibold text-green-300">Networking</h4>
-                    </motion.div>
-                    <p className="text-sm text-gray-300">
-                      Network infrastructure design and optimization solutions.
-                    </p>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="p-4 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-lg border border-purple-800"
-                    whileHover={{ 
-                      y: -10, 
-                      boxShadow: "0 15px 30px -10px rgba(147, 51, 234, 0.5)",
-                      backgroundColor: "rgba(147, 51, 234, 0.1)"
-                    }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <motion.div 
-                      className="mb-3 flex items-center"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <div className="p-2 rounded-full bg-purple-800 mr-3">
-                        <Code className="h-5 w-5 text-purple-400" />
-                      </div>
-                      <h4 className="font-semibold text-purple-300">AI Chatbots</h4>
-                    </motion.div>
-                    <p className="text-sm text-gray-300">
-                      Intelligent conversational AI and automated customer service solutions.
-                    </p>
-                  </motion.div>
-                </motion.div>
+              <div className="flex items-center justify-center h-full p-8">
+                <motion.img 
+                  src="/lovable-uploads/8bff5b03-0f3f-4c0c-b2fe-11969f6b1f05.png"
+                  alt="Founder of Techkhwa"
+                  className="w-48 h-48 object-cover rounded-2xl shadow-lg"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                />
               </div>
             </div>
-          </div>
+            
+            {/* Profile Info Section */}
+            <div className="p-8 text-center">
+              <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-3xl font-bold text-gray-900 mb-2"
+              >
+                Kashif Ali
+              </motion.h3>
+              
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.6 }}
+                className="text-lg text-gray-600 mb-6"
+              >
+                Founder & CEO
+              </motion.p>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="flex gap-3 justify-center mb-6"
+              >
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white border-blue-500 transition-all duration-300"
+                >
+                  <Linkedin className="h-4 w-4" />
+                  Connect
+                </Button>
+                
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2 bg-gray-800 hover:bg-gray-900 text-white border-gray-800 transition-all duration-300"
+                >
+                  <Github className="h-4 w-4" />
+                  GitHub
+                </Button>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
+
+        {/* Expertise Section - Below the card */}
+        <motion.div 
+          className="mt-16 max-w-5xl mx-auto"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        >
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-white mb-4">Areas of Expertise</h3>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Passionate about cutting-edge technologies, specializing in AI, Machine Learning, 
+              Cybersecurity, Networking, and AI Chatbot development.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <motion.div 
+              className="p-6 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl border border-blue-800"
+              whileHover={{ 
+                y: -10, 
+                boxShadow: "0 15px 30px -10px rgba(59, 130, 246, 0.5)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <div className="p-3 rounded-lg bg-blue-800 mb-4 w-fit">
+                <Bot className="h-6 w-6 text-blue-400" />
+              </div>
+              <h4 className="font-semibold text-blue-300 mb-2">AI & ML</h4>
+              <p className="text-sm text-gray-300">
+                Advanced machine learning algorithms and artificial intelligence solutions.
+              </p>
+            </motion.div>
+            
+            <motion.div 
+              className="p-6 bg-gradient-to-br from-red-900/30 to-orange-900/30 rounded-xl border border-red-800"
+              whileHover={{ 
+                y: -10, 
+                boxShadow: "0 15px 30px -10px rgba(239, 68, 68, 0.5)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <div className="p-3 rounded-lg bg-red-800 mb-4 w-fit">
+                <Shield className="h-6 w-6 text-red-400" />
+              </div>
+              <h4 className="font-semibold text-red-300 mb-2">Cyber Security</h4>
+              <p className="text-sm text-gray-300">
+                Comprehensive security protocols and threat protection systems.
+              </p>
+            </motion.div>
+            
+            <motion.div 
+              className="p-6 bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl border border-green-800"
+              whileHover={{ 
+                y: -10, 
+                boxShadow: "0 15px 30px -10px rgba(34, 197, 94, 0.5)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <div className="p-3 rounded-lg bg-green-800 mb-4 w-fit">
+                <Network className="h-6 w-6 text-green-400" />
+              </div>
+              <h4 className="font-semibold text-green-300 mb-2">Networking</h4>
+              <p className="text-sm text-gray-300">
+                Network infrastructure design and optimization solutions.
+              </p>
+            </motion.div>
+            
+            <motion.div 
+              className="p-6 bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl border border-purple-800"
+              whileHover={{ 
+                y: -10, 
+                boxShadow: "0 15px 30px -10px rgba(147, 51, 234, 0.5)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <div className="p-3 rounded-lg bg-purple-800 mb-4 w-fit">
+                <Code className="h-6 w-6 text-purple-400" />
+              </div>
+              <h4 className="font-semibold text-purple-300 mb-2">AI Chatbots</h4>
+              <p className="text-sm text-gray-300">
+                Intelligent conversational AI and automated customer service solutions.
+              </p>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </motion.section>
   );
