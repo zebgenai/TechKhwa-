@@ -23,7 +23,7 @@ const DeveloperProfile = () => {
         >
           <h2 className="text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Meet Our Founder
+              Meet Our Developer
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -53,14 +53,14 @@ const DeveloperProfile = () => {
                 className="absolute top-4 right-4"
               >
                 <div className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium">
-                  Founder
+                  Developer
                 </div>
               </motion.div>
               
               <div className="flex items-center justify-center h-full p-8">
                 <motion.img 
                   src="/lovable-uploads/8bff5b03-0f3f-4c0c-b2fe-11969f6b1f05.png"
-                  alt="Founder of Techkhwa"
+                  alt="Developer of Techkhwa"
                   className="w-48 h-48 object-cover rounded-2xl shadow-lg"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
@@ -76,7 +76,7 @@ const DeveloperProfile = () => {
                 transition={{ duration: 0.6 }}
                 className="text-3xl font-bold text-gray-900 mb-2"
               >
-                Kashif Ali
+                Atif Zeb
               </motion.h3>
               
               <motion.p
@@ -85,7 +85,7 @@ const DeveloperProfile = () => {
                 transition={{ delay: 0.1, duration: 0.6 }}
                 className="text-lg text-gray-600 mb-6"
               >
-                Founder & CEO
+                Developer & CEO
               </motion.p>
               
               <motion.div
