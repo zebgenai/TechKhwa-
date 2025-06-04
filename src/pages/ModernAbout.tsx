@@ -1,9 +1,9 @@
-
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Sparkles, Target, Users, Award, Lightbulb, Globe } from "lucide-react";
 import InteractiveNavbar from "@/components/InteractiveNavbar";
 import ModernFooter from "@/components/ModernFooter";
+import DeveloperProfile from "@/components/about/DeveloperProfile";
 
 const ModernAbout = () => {
   const containerRef = useRef(null);
@@ -168,6 +168,9 @@ const ModernAbout = () => {
           </div>
         </motion.div>
       </section>
+
+      {/* Developer Profile Section */}
+      <DeveloperProfile />
 
       {/* Values Section */}
       <section className="py-24 bg-slate-800 relative overflow-hidden">
