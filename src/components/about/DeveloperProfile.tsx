@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Shield, Bot, Code, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -31,12 +30,12 @@ const DeveloperProfile = () => {
           </p>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="bg-gradient-to-br from-slate-700/50 to-slate-800/50 rounded-2xl border border-slate-600 overflow-hidden">
             <div className="lg:flex">
               {/* Image Section */}
               <motion.div 
-                className="lg:w-2/5 relative overflow-hidden"
+                className="lg:w-1/3 relative overflow-hidden"
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ type: "spring", duration: 0.8 }}
@@ -55,13 +54,13 @@ const DeveloperProfile = () => {
                   <img 
                     src="/lovable-uploads/709b4776-e124-4222-9db6-eb8455d8a8cf.png"
                     alt="Lead Developer"
-                    className="h-full w-full object-cover min-h-[500px]"
+                    className="h-full w-full object-cover min-h-[400px] max-h-[500px]"
                   />
                 </motion.div>
               </motion.div>
               
               {/* Content Section */}
-              <div className="p-8 lg:w-3/5">
+              <div className="p-8 lg:w-2/3">
                 <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
