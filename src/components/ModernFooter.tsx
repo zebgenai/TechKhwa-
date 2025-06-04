@@ -234,7 +234,7 @@ const ModernFooter = () => {
           className="border-t border-slate-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
         >
           <p className="text-gray-400 mb-4 md:mb-0 flex items-center">
-            © 2024 Techkhwa. Made with 
+            © 2025 Techkhwa. Developed by Atif Zeb. Made with 
             <motion.span
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1, repeat: Infinity }}
